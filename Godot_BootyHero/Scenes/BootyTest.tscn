@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw73aehe6adg"]
+
+[ext_resource type="PackedScene" uid="uid://hy36ees5dxl8" path="res://models/BootyGirl.fbx" id="1_44up2"]
+
+[node name="BootyTest" type="Node3D"]
+
+[node name="Root Scene" parent="." instance=ExtResource("1_44up2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291006, 0, 1.07534)

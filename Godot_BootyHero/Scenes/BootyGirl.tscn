@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyyovcuo6e16s"]
+
+[ext_resource type="PackedScene" uid="uid://hy36ees5dxl8" path="res://models/BootyGirl.fbx" id="1_1ycp0"]
+[ext_resource type="Script" path="res://addons/jigglebones/jigglebone.gd" id="2_dvtuc"]
+
+[node name="Root Scene" instance=ExtResource("1_1ycp0")]
+
+[node name="Jigglebone" type="Node3D" parent="RootNode/Armature/Skeleton3D" index="5"]
+transform = Transform3D(90.9119, -10.9667, 40.1839, 37.1181, -22.4467, -90.1022, 18.9013, 96.829, -16.3362, 0.913361, 1.40321, 0.561769)
+top_level = true
+script = ExtResource("2_dvtuc")
+bone_name = "cButt.L"
+forward_axis = 0
+
+[node name="Jigglebone2" type="Node3D" parent="RootNode/Armature/Skeleton3D" index="6"]
+transform = Transform3D(96.4878, -26.2306, 1.43807, 1.82205, 1.22124, -99.9761, 26.2067, 96.4906, 1.65629, -0.114676, 2.26911, -0.022001)
+top_level = true
+script = ExtResource("2_dvtuc")
+bone_name = "cButt.R"
