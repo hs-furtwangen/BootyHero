@@ -5,4 +5,4 @@
 [node name="BootyTest" type="Node3D"]
 
 [node name="Root Scene" parent="." instance=ExtResource("1_44up2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291006, 0, 1.07534)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14162, 0, -1.63667)
