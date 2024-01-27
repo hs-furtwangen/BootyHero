@@ -13,7 +13,7 @@
     // $: console.log({ duration, noteDuration, notesAmount });
 
     const dispatch = createEventDispatcher();
-    let selectedNotes = structuredClone(section.notes[note]);
+    $: selectedNotes = structuredClone(section.notes[note]);
 
     function toggleNote(element: Event) {
         let target = <HTMLDivElement>element.target;
@@ -22,12 +22,12 @@
         let index = parseInt(i);
         let time = noteDuration * index + section.start;
         dispatch("note", { index, time, note });
-        if(selectedNotes.has(index)){
-            selectedNotes.delete(index);
-        } else {
-            selectedNotes.add(index);
-        }
-        selectedNotes = selectedNotes;
+        // if(selectedNotes.has(index)){
+        //     selectedNotes.delete(index);
+        // } else {
+        //     selectedNotes.add(index);
+        // }
+        // selectedNotes = selectedNotes;
     }
 </script>
 

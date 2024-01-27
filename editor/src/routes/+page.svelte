@@ -18,6 +18,8 @@
 
     let songFileUrl: string = "";
 
+    let notesElement: Notes;
+
     onMount(() => {
         wavesurfer = WaveSurfer.create({
             container: "#wave",
@@ -52,7 +54,7 @@
             console.log("sound file loaded", soundFile[0]);
             if (wavesurfer) wavesurfer.destroy();
 
-            songFileUrl = URL.createObjectURL(soundFile[0])
+            songFileUrl = URL.createObjectURL(soundFile[0]);
             wavesurfer = WaveSurfer.create({
                 container: "#wave",
                 url: songFileUrl,
@@ -91,11 +93,41 @@
     function onKeyDown(event: KeyboardEvent) {
         // TODO: use number keys to jump between sections?
 
+        let note: string = "";
         switch (event.key) {
             case " ":
                 wavesurfer.playPause();
                 break;
+            case "s":
+                note = "lc";
+                break;
+            case "a":
+                note = "ll";
+                break;
+            case "w":
+                note = "lt";
+                break;
+            case "x":
+            case "y":
+                note = "lb";
+                break;
+            case "k":
+                note = "rc";
+                break;
+            case "l":
+                note = "rr";
+                break;
+            case "i":
+                note = "rt";
+                break;
+            case "m":
+            case ",":
+                note = "rb";
+                break;
         }
+        if (!note) return;
+        if (!wavesurfer.isPlaying()) return;
+        notesElement.setNoteThroughKeys(currentTime, note);
     }
 
     function timeUpdate(time: number) {
@@ -194,6 +226,8 @@
     <button on:click={() => soundControl("end")}>|&gt;</button>
 </div>
 {#if songLayout}
-    <Notes bind:layout={songLayout} bind:time={currentTime}></Notes>
+    <Notes bind:layout={songLayout} bind:time={currentTime} bind:this={notesElement}></Notes>
     <button on:click={exportSongPage}>Export</button>
 {/if}
+
+<img src="./keys2.png" alt="Name explanation"><img src="./keys.png" alt="Key Shortcuts">

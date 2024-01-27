@@ -3,6 +3,22 @@
     export let layout: SongLayout;
     export let time: number;
 
+    export function setNoteThroughKeys(time: number, note: string) {
+        let section;
+        for(let s of layout.sections){
+            if(s.start <= time && s.end >= time){
+                section = s;
+                break;
+            }
+        }
+        if(!section) return;
+        let duration = section.end - section.start;
+        let notesAmount = Math.floor(duration / noteDuration);
+        let sectionTime = time - section.start;
+        let index = Math.floor(sectionTime / noteDuration);
+        toggleNote(new CustomEvent("anything", {detail: {note, index}}), section);
+    }
+
     let notesDiv: HTMLDivElement;
 
     let notesPerBeat: number = 8;
@@ -22,6 +38,7 @@
 
     function toggleNote(noteEvent: CustomEvent, section: SongSection) {
         let { index, note } = noteEvent.detail;
+        console.log("toggle", index, note);
         if (section.notes[note].has(index)) {
             section.notes[note].delete(index);
         } else {
