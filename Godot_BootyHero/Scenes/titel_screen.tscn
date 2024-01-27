@@ -1,0 +1,134 @@
+[gd_scene load_steps=7 format=3 uid="uid://hk4drtq0mir0"]
+
+[ext_resource type="Texture2D" uid="uid://b6fambk26vg2q" path="res://ui_titel/background_start.png" id="1_wphbe"]
+[ext_resource type="Texture2D" uid="uid://drg35ynt30o50" path="res://ui_titel/Curtains_start.png" id="2_kvjkk"]
+[ext_resource type="Texture2D" uid="uid://5uvmie0jhhwf" path="res://ui_titel/Ligth_start.png" id="3_7qmw5"]
+[ext_resource type="Texture2D" uid="uid://c2twu2o2wkmj5" path="res://ui_titel/Butt_start.png" id="4_qmx6x"]
+[ext_resource type="Texture2D" uid="uid://bj5j3e0sroi1j" path="res://ui_titel/Usb_normal_start.png" id="5_tajk5"]
+[ext_resource type="Texture2D" uid="uid://dmc32lfg4mu8m" path="res://ui_titel/Usb_highligth_start.png" id="6_1b00t"]
+
+[node name="TitelScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Images" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="TextureRect" parent="Images"]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 2
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 1281.0
+offset_bottom = 722.0
+texture = ExtResource("1_wphbe")
+expand_mode = 1
+
+[node name="Curtains" type="TextureRect" parent="Images"]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_kvjkk")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Ligth" type="TextureRect" parent="Images"]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 0
+offset_left = 1.0
+offset_right = 1281.0
+offset_bottom = 720.0
+texture = ExtResource("3_7qmw5")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Butt" type="TextureRect" parent="Images"]
+custom_minimum_size = Vector2(300, 130)
+layout_mode = 0
+offset_left = 386.0
+offset_top = 532.0
+offset_right = 886.0
+offset_bottom = 741.0
+texture = ExtResource("4_qmx6x")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="USB_Menu" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 450.0
+offset_right = -2.0
+offset_bottom = -170.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HowTo" type="TextureButton" parent="USB_Menu"]
+custom_minimum_size = Vector2(50, 100)
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 6
+texture_normal = ExtResource("5_tajk5")
+texture_pressed = ExtResource("6_1b00t")
+texture_hover = ExtResource("6_1b00t")
+texture_focused = ExtResource("6_1b00t")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Song1" type="TextureButton" parent="USB_Menu"]
+custom_minimum_size = Vector2(50, 100)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 6
+texture_normal = ExtResource("5_tajk5")
+texture_pressed = ExtResource("6_1b00t")
+texture_hover = ExtResource("6_1b00t")
+texture_focused = ExtResource("6_1b00t")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Song2" type="TextureButton" parent="USB_Menu"]
+custom_minimum_size = Vector2(50, 100)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 6
+texture_normal = ExtResource("5_tajk5")
+texture_pressed = ExtResource("6_1b00t")
+texture_hover = ExtResource("6_1b00t")
+texture_focused = ExtResource("6_1b00t")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Credits" type="TextureButton" parent="USB_Menu"]
+custom_minimum_size = Vector2(50, 100)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 6
+texture_normal = ExtResource("5_tajk5")
+texture_pressed = ExtResource("6_1b00t")
+texture_hover = ExtResource("6_1b00t")
+texture_focused = ExtResource("6_1b00t")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Quit" type="TextureButton" parent="USB_Menu"]
+custom_minimum_size = Vector2(50, 100)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 6
+texture_normal = ExtResource("5_tajk5")
+texture_pressed = ExtResource("6_1b00t")
+texture_hover = ExtResource("6_1b00t")
+texture_focused = ExtResource("6_1b00t")
+ignore_texture_size = true
+stretch_mode = 4
