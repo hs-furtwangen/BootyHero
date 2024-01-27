@@ -1,8 +1,54 @@
-[gd_scene load_steps=2 format=3 uid="uid://bw73aehe6adg"]
+[gd_scene load_steps=6 format=3 uid="uid://bw73aehe6adg"]
 
 [ext_resource type="PackedScene" uid="uid://hy36ees5dxl8" path="res://models/BootyGirl.fbx" id="1_44up2"]
+[ext_resource type="Texture2D" uid="uid://nh8fuxwbpsiw" path="res://Sprites/BunnyBody.PNG" id="2_ijtpo"]
+[ext_resource type="Texture2D" uid="uid://c0h8sslfwi784" path="res://Sprites/Paws Up/PawLeftUp.PNG" id="3_myfdw"]
+[ext_resource type="Texture2D" uid="uid://ds7e7wvwhlmty" path="res://Sprites/Paws Up/PawRightUp.PNG" id="4_lgqg7"]
+[ext_resource type="Texture2D" uid="uid://b6fambk26vg2q" path="res://ui_titel/background_start.png" id="5_tgefi"]
 
 [node name="BootyTest" type="Node3D"]
 
-[node name="Root Scene" parent="." instance=ExtResource("1_44up2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14162, 0, -1.63667)
+[node name="Bootygirl" parent="." instance=ExtResource("1_44up2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.637)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0249851, 1.13993, -1.68537)
+
+[node name="Bunny Body" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0.206006, 0)
+texture = ExtResource("2_ijtpo")
+
+[node name="PawLeft" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0.206, 0.0438092)
+texture = ExtResource("3_myfdw")
+
+[node name="PawRight" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0.206, 0.0438092)
+texture = ExtResource("4_lgqg7")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33442, -88.8925)
+texture = ExtResource("5_tgefi")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33671, -1.387)
+projection = 1
+size = 0.5
+near = 0.001
+far = 4018.35
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.642279, 0.766471, 0, -0.766471, -0.642279, 0, 3.15686, -0.671878)
+light_color = Color(1, 0.909804, 0.909804, 1)
+light_indirect_energy = 0.0
+shadow_bias = 0.0
+shadow_normal_bias = 0.788
+shadow_transmittance_bias = -9.647
+shadow_blur = 1.404
+directional_shadow_split_3 = 0.382
+directional_shadow_fade_start = 0.59
+directional_shadow_pancake_size = 29.3
+
+[node name="OmniLight3D" type="OmniLight3D" parent="DirectionalLight3D"]
+light_energy = 1.97
+light_volumetric_fog_energy = 0.0

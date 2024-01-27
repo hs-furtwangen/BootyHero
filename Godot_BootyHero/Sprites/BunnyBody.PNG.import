@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6fambk26vg2q"
-path.s3tc="res://.godot/imported/background_start.png-ec5c1320c48e63af38db54200b7072ce.s3tc.ctex"
+uid="uid://nh8fuxwbpsiw"
+path.s3tc="res://.godot/imported/BunnyBody.PNG-d5da5701a876a8c6aa57ebf55b0fefd8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://ui_titel/background_start.png"
-dest_files=["res://.godot/imported/background_start.png-ec5c1320c48e63af38db54200b7072ce.s3tc.ctex"]
+source_file="res://Sprites/BunnyBody.PNG"
+dest_files=["res://.godot/imported/BunnyBody.PNG-d5da5701a876a8c6aa57ebf55b0fefd8.s3tc.ctex"]
 
 [params]
 
