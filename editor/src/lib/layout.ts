@@ -8,7 +8,6 @@ interface SongLayout {
     sections: SongSection[],
     /** Time before the first note is supposed to start */
     delay: number,
-    notes: SongNotes,
     name: string,
     author: string,
 }
@@ -17,23 +16,25 @@ interface SongSection {
     start: number,
     end: number,
     bpm: number,
+    notes: SongNotes,
 }
 
 interface SongNotes {
+    [id: string]: Set<number>;
     //** Left Center - main Buttcheek */
-    lc: number[],
+    lc: Set<number>,
     //** Left Top*/
-    lt: number[],
+    lt: Set<number>,
     //** Left Left*/
-    ll: number[],
+    ll: Set<number>,
     //** Left Bottom*/
-    lb: number[],
+    lb: Set<number>,
     //** Right Center - main Buttcheek */
-    rc: number[],
+    rc: Set<number>,
     //** Right Top*/
-    rt: number[],
+    rt: Set<number>,
     //** Right Right*/
-    rr: number[],
+    rr: Set<number>,
     //** Right Bottom*/
-    rb: number[],
+    rb: Set<number>,
 }

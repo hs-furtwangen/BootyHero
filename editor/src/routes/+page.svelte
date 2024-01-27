@@ -1,5 +1,6 @@
 <script lang="ts">
     import Notes from "$comp/Notes.svelte";
+    import { exportSong, importSong } from "$lib/io";
     import { onMount } from "svelte";
     import WaveSurfer from "wavesurfer.js";
 
@@ -15,24 +16,46 @@
     let name: string = "";
     let currentTime: number = 0;
 
+    let songFileUrl: string = "";
+
     onMount(() => {
         wavesurfer = WaveSurfer.create({
             container: "#wave",
         });
     });
 
-    $: console.log("sound changed", soundFile);
     $: loadNewSound(soundFile);
+    $: loadNewProject(importFile);
 
-    function loadNewSound(soundFile: FileList){
-        if(!soundFile) return;
+    async function loadNewProject(importFile: FileList) {
+        if (!importFile) return;
+        if (importFile.length !== 1) return;
+        console.log("load project file");
+        let { data, music } = await importSong(importFile[0]);
+        if (wavesurfer) wavesurfer.destroy();
+        songFileUrl = music;
+        wavesurfer = WaveSurfer.create({
+            container: "#wave",
+            url: music,
+        });
+        wavesurfer.on("timeupdate", timeUpdate);
+        songLayout = data;
+        bpm = songLayout.sections[0].bpm;
+        author = songLayout.author;
+        name = songLayout.name;
+        delay = songLayout.delay;
+    }
+
+    function loadNewSound(soundFile: FileList) {
+        if (!soundFile) return;
         if (soundFile.length == 1) {
             console.log("sound file loaded", soundFile[0]);
             if (wavesurfer) wavesurfer.destroy();
 
+            songFileUrl = URL.createObjectURL(soundFile[0])
             wavesurfer = WaveSurfer.create({
                 container: "#wave",
-                url: URL.createObjectURL(soundFile[0]),
+                url: songFileUrl,
             });
             wavesurfer.on("timeupdate", timeUpdate);
 
@@ -40,22 +63,28 @@
                 songLayout = {
                     delay,
                     sections: [
-                        { bpm, end: Math.ceil(time * 1000) / 1000, start: 0 },
+                        {
+                            bpm,
+                            end: Math.ceil(time * 1000) / 1000,
+                            start: 0,
+                            notes: {
+                                lb: new Set<number>(),
+                                lc: new Set<number>(),
+                                ll: new Set<number>(),
+                                lt: new Set<number>(),
+                                rb: new Set<number>(),
+                                rc: new Set<number>(),
+                                rr: new Set<number>(),
+                                rt: new Set<number>(),
+                            },
+                        },
                     ],
-                    notes: {
-                        lb: [],
-                        lc: [],
-                        ll: [],
-                        lt: [],
-                        rb: [],
-                        rc: [],
-                        rr: [],
-                        rt: [],
-                    },
-                    author, name
+
+                    author,
+                    name,
                 };
             });
-            name = soundFile[0].name
+            name = soundFile[0].name.substring(0, soundFile[0].name.length - 4);
         }
     }
 
@@ -69,14 +98,14 @@
         }
     }
 
-    function timeUpdate(time: number){
+    function timeUpdate(time: number) {
         currentTime = time;
     }
-
-    function exportSong() {
-        console.log(songLayout);
+    function exportSongPage() {
+        exportSong(songLayout, songFileUrl);
     }
-    function updateValues(){
+
+    function updateValues() {
         songLayout.author = author;
         songLayout.delay = delay;
         songLayout.name = name;
@@ -84,10 +113,10 @@
         songLayout = songLayout;
     }
 
-    function soundControl(action: string){
-        if(!wavesurfer) return;
-        switch(action){
-            case "play":
+    function soundControl(action: string) {
+        if (!wavesurfer) return;
+        switch (action) {
+            case "toggle":
                 wavesurfer.playPause();
                 break;
             case "start":
@@ -123,23 +152,48 @@
 
 <div id="songSettings">
     <label for="bpm">bpm</label>
-    <input type="number" name="bpm" id="bpm" bind:value={bpm} on:change={updateValues} />
+    <input
+        type="number"
+        name="bpm"
+        id="bpm"
+        bind:value={bpm}
+        on:change={updateValues}
+    />
     <label for="delay">delay</label>
-    <input type="number" name="delay" id="delay" bind:value={delay} on:change={updateValues} />
+    <input
+        type="number"
+        name="delay"
+        id="delay"
+        bind:value={delay}
+        on:change={updateValues}
+    />
     <label for="author">author</label>
-    <input type="text" name="author" id="author" bind:value={author} on:change={updateValues}/>
+    <input
+        type="text"
+        name="author"
+        id="author"
+        bind:value={author}
+        on:change={updateValues}
+    />
     <label for="name">name</label>
-    <input type="text" name="name" id="name" bind:value={name} on:change={updateValues}/>
+    <input
+        type="text"
+        name="name"
+        id="name"
+        bind:value={name}
+        on:change={updateValues}
+    />
 </div>
 
 <div id="wave"></div>
 <div id="sound-control">
-    <button on:click={()=>soundControl("start")}>&lt;|</button>
-    <button on:click={()=>soundControl("toggle")}>Play/Pause (spacebar)</button>
-    <button on:click={()=>soundControl("end")}>|&gt;</button>
+    <button on:click={() => soundControl("start")}>&lt;|</button>
+    <button on:click={() => soundControl("toggle")}
+        >Play/Pause (spacebar)</button
+    >
+    <button on:click={() => soundControl("end")}>|&gt;</button>
 </div>
 {#if songLayout}
     <Notes bind:layout={songLayout} bind:time={currentTime}></Notes>
-    <button on:click={exportSong}>Export</button>
+    <button on:click={exportSongPage}>Export</button>
 {/if}
-
