@@ -27,6 +27,7 @@ project/assembly_name="BootyHero"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/jigglebones/plugin.cfg")
+
 [input]
 
 LC={
