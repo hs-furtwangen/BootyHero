@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link href="./_app/immutable/assets/2.3E03pDO9.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.5dHYG5q3.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/entry.YEqwiMIQ.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.J96yCwxx.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.NRWuV_g5.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.ta42h63p.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.Lew1fx64.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.OQYXiniY.js"><title>Booty Hero Creation Page</title><!-- HEAD_svelte-ssshy_START --><!-- HEAD_svelte-ssshy_END -->
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">    <label for="newSound" data-svelte-h="svelte-cexchr">Soundfile for new project (.mp3)</label><input id="newSound" name="newSound" accept=".mp3" type="file"> <label for="import" data-svelte-h="svelte-lnlwk6">Import existing project (.booty)</label><input id="import" name="import" accept=".booty" type="file"> <div id="songSettings"><label for="bpm" data-svelte-h="svelte-1usttzs">bpm</label> <input type="number" name="bpm" id="bpm" value="120"> <label for="delay" data-svelte-h="svelte-ax9p3s">delay</label> <input type="number" name="delay" id="delay" value="0"> <label for="author" data-svelte-h="svelte-1kxukma">author</label> <input type="text" name="author" id="author" value=""> <label for="name" data-svelte-h="svelte-1cvlpim">name</label> <input type="text" name="name" id="name" value=""></div> <div id="wave"></div> <div id="sound-control"><button data-svelte-h="svelte-12t7hck">&lt;|</button> <button data-svelte-h="svelte-z6o828">Play/Pause (spacebar)</button> <button data-svelte-h="svelte-75zcb4">|&gt;</button></div>  <img src="./keys2.png" alt="Name explanation"><img src="./keys.png" alt="Key Shortcuts"> 
+			
+			<script>
+				{
+					__sveltekit_11gm47k = {
+						base: new URL(".", location).pathname.slice(0, -1)
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [null,null];
+
+					Promise.all([
+						import("./_app/immutable/entry/start.5dHYG5q3.js"),
+						import("./_app/immutable/entry/app.NRWuV_g5.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 2],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>

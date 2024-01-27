@@ -1,0 +1,81 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7wk6bthg4l8l"]
+
+[ext_resource type="Script" path="res://scripts/keybinds.gd" id="1_fve38"]
+
+[node name="keybinds" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fve38")
+
+[node name="LC" type="Button" parent="."]
+layout_mode = 0
+offset_left = 321.0
+offset_top = 315.0
+offset_right = 504.0
+offset_bottom = 394.0
+
+[node name="LL" type="Button" parent="."]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 319.0
+offset_right = 270.0
+offset_bottom = 398.0
+
+[node name="LB" type="Button" parent="."]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 435.0
+offset_right = 503.0
+offset_bottom = 514.0
+
+[node name="LT" type="Button" parent="."]
+layout_mode = 0
+offset_left = 319.0
+offset_top = 214.0
+offset_right = 502.0
+offset_bottom = 293.0
+
+[node name="RC" type="Button" parent="."]
+layout_mode = 0
+offset_left = 823.0
+offset_top = 319.0
+offset_right = 1006.0
+offset_bottom = 398.0
+
+[node name="RR" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1059.0
+offset_top = 319.0
+offset_right = 1242.0
+offset_bottom = 398.0
+
+[node name="RB" type="Button" parent="."]
+layout_mode = 0
+offset_left = 822.0
+offset_top = 439.0
+offset_right = 1005.0
+offset_bottom = 518.0
+
+[node name="RT" type="Button" parent="."]
+layout_mode = 0
+offset_left = 821.0
+offset_top = 218.0
+offset_right = 1004.0
+offset_bottom = 297.0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 325.0
+offset_top = 209.0
+offset_right = 877.0
+offset_bottom = 344.0
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+text = "Press any key to set as new key"
+horizontal_alignment = 1
+vertical_alignment = 1
