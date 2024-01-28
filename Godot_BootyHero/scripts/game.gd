@@ -17,7 +17,7 @@ var heat = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	read_data("res://songs/farting_around/")
+	read_data("res://songs/space_dandy/")
 	#read_zip_file("res://songs/farting_around.zip")
 	pass # Replace with function body.
 
@@ -42,7 +42,6 @@ func _process(delta):
 		for note in section.notes_to_spawn[index]:
 			spawn_note(note, time_to_appear)
 			
-	
 
 
 func read_data(file):
@@ -143,4 +142,10 @@ func hit(type: String, action: String):
 		heat -= 25
 		if(multiplier > 5):
 			multiplier = 10
-	print(type, " ", action, " ", multiplier, " ", heat)
+			heat += 25
+	
+	points += floor((multiplier + min(heat / 25, 10)) * 10)
+	
+	get_node("Control/multiplier").text = "[center]%sx[/center]" % multiplier
+	get_node("Control/heatBar").value = heat
+	get_node("Control/points").text = "[center]%s[/center]" % points
