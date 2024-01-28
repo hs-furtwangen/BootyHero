@@ -1,43 +1,41 @@
-[gd_scene load_steps=14 format=3 uid="uid://bw73aehe6adg"]
+[gd_scene load_steps=12 format=3 uid="uid://bw73aehe6adg"]
 
-[ext_resource type="PackedScene" uid="uid://hy36ees5dxl8" path="res://models/BootyGirl.fbx" id="1_44up2"]
+[ext_resource type="PackedScene" uid="uid://bwlm72ifeo7ce" path="res://models/BootyGirl.fbx" id="1_44up2"]
 [ext_resource type="Texture2D" uid="uid://nh8fuxwbpsiw" path="res://Sprites/BunnyBody.PNG" id="2_ijtpo"]
 [ext_resource type="Texture2D" uid="uid://c0h8sslfwi784" path="res://Sprites/Paws Up/PawLeftUp.PNG" id="3_myfdw"]
 [ext_resource type="Texture2D" uid="uid://tj7rxwg582yc" path="res://Sprites/Paws Down/PawLeftDown.PNG" id="4_645uv"]
 [ext_resource type="Texture2D" uid="uid://ds7e7wvwhlmty" path="res://Sprites/Paws Up/PawRightUp.PNG" id="4_lgqg7"]
 [ext_resource type="Texture2D" uid="uid://catnchf02aw24" path="res://Sprites/Paws Down/PawRightDown.PNG" id="5_hwjq8"]
-[ext_resource type="Texture2D" uid="uid://b6fambk26vg2q" path="res://ui_titel/background_start.png" id="5_tgefi"]
-[ext_resource type="Texture2D" uid="uid://cew24gxwhl8fm" path="res://Sprites/background_timeline.png" id="8_2dyun"]
 
-[sub_resource type="Animation" id="Animation_w8vcn"]
-resource_name = "PawIdle"
-loop_mode = 1
-tracks/0/type = "position_3d"
+[sub_resource type="Animation" id="Animation_gkh1p"]
+resource_name = "PawDownBoth"
+length = 0.001
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../PawLeft")
+tracks/0/path = NodePath("../PawLeft:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.206, 0.044)
-tracks/1/type = "position_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../PawRight")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.206, 0.044)
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../PawLeft:texture")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_myfdw")]
+"values": [ExtResource("4_645uv")]
 }
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PawLeft")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.206, 0.25)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../PawRight")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.005, 0.2, 0.25)
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
@@ -48,15 +46,8 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_lgqg7")]
+"values": [ExtResource("5_hwjq8")]
 }
-tracks/4/type = "position_3d"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = PackedFloat32Array(0, 1, 0, 0.206006, 0, 0.5, 1, 0, 0.196, 0, 1, 1, 0, 0.206, 0)
 
 [sub_resource type="Animation" id="Animation_cotky"]
 resource_name = "PawDownLeft"
@@ -142,35 +133,35 @@ tracks/3/keys = {
 "values": [ExtResource("5_hwjq8")]
 }
 
-[sub_resource type="Animation" id="Animation_gkh1p"]
-resource_name = "PawDownBoth"
-length = 0.001
-tracks/0/type = "value"
+[sub_resource type="Animation" id="Animation_w8vcn"]
+resource_name = "PawIdle"
+loop_mode = 1
+tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../PawLeft:texture")
+tracks/0/path = NodePath("../PawLeft")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("4_645uv")]
-}
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.206, 0.044)
 tracks/1/type = "position_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../PawLeft")
+tracks/1/path = NodePath("../PawRight")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.206, 0.25)
-tracks/2/type = "position_3d"
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.206, 0.044)
+tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../PawRight")
+tracks/2/path = NodePath("../PawLeft:texture")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, -0.005, 0.2, 0.25)
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_myfdw")]
+}
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
@@ -181,8 +172,15 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_hwjq8")]
+"values": [ExtResource("4_lgqg7")]
 }
+tracks/4/type = "position_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0, 0.206006, 0, 0.5, 1, 0, 0.196, 0, 1, 1, 0, 0.206, 0)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_67aen"]
 _data = {
@@ -218,14 +216,6 @@ texture = ExtResource("3_myfdw")
 [node name="PawRight" type="Sprite3D" parent="BootyBunny"]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0.206, 0.044)
 texture = ExtResource("4_lgqg7")
-
-[node name="background" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33442, -88.8925)
-texture = ExtResource("5_tgefi")
-
-[node name="background2" type="Sprite3D" parent="."]
-transform = Transform3D(0.0267875, 0, 0, 0, 0.0267875, 0, 0, 0, 1, 0, 1.33442, -2.37711)
-texture = ExtResource("8_2dyun")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33671, -1.387)
