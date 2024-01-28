@@ -286,3 +286,31 @@ Quit
 fit_content = true
 scroll_active = false
 autowrap_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu"]
+layout_mode = 0
+offset_left = 443.0
+offset_top = 599.0
+offset_right = 629.0
+offset_bottom = 675.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "BOOTY"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MainMenu"]
+layout_mode = 0
+offset_left = 674.0
+offset_top = 592.0
+offset_right = 824.0
+offset_bottom = 668.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 55
+bbcode_enabled = true
+text = "HERO"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

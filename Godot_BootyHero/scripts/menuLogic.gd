@@ -142,6 +142,8 @@ func is_action_active(action_to_check: String):
 
 func what_is_currently_active():
 	var result = ""
+	if is_action_active("lr"):
+		result += "lr"
 	if is_action_active("l"):
 		result += "l"
 	if is_action_active("r"):
