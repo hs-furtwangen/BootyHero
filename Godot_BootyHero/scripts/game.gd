@@ -1,5 +1,7 @@
 extends Node2D
 
+var real_booty_mode = true;
+
 var song_data;
 var fly_in_time = 1
 var currentTime = -1 * fly_in_time * 2;
@@ -17,7 +19,7 @@ var heat = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	read_data("res://songs/farting_around/")
+	read_data("res://songs/space_dandy/")
 	#read_zip_file("res://songs/farting_around.zip")
 	pass # Replace with function body.
 
@@ -42,7 +44,6 @@ func _process(delta):
 		for note in section.notes_to_spawn[index]:
 			spawn_note(note, time_to_appear)
 			
-	
 
 
 func read_data(file):
@@ -74,6 +75,8 @@ func read_zip_file(file):
 	
 func spawn_note(note: String, time: float):
 	#if(note != "lc"): return
+	if(real_booty_mode):
+		note = note.substr(0, 1) + "c"
 	if(!hit_elements.has(note)):
 		hit_elements[note] = load("res://Scenes/hit_elements/" + note + ".tscn")
 	var scene = hit_elements[note]
@@ -143,4 +146,10 @@ func hit(type: String, action: String):
 		heat -= 25
 		if(multiplier > 5):
 			multiplier = 10
-	print(type, " ", action, " ", multiplier, " ", heat)
+			heat += 25
+	
+	points += floor((multiplier + min(heat / 25, 10)) * 10)
+	
+	get_node("Control/multiplier").text = "[center]%sx[/center]" % multiplier
+	get_node("Control/heatBar").value = heat
+	get_node("Control/points").text = "[center]%s[/center]" % points
