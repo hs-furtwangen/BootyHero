@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://tj7rxwg582yc" path="res://Sprites/Paws Down/PawLeftDown.PNG" id="4_645uv"]
 [ext_resource type="Texture2D" uid="uid://ds7e7wvwhlmty" path="res://Sprites/Paws Up/PawRightUp.PNG" id="4_lgqg7"]
 [ext_resource type="Texture2D" uid="uid://catnchf02aw24" path="res://Sprites/Paws Down/PawRightDown.PNG" id="5_hwjq8"]
+[ext_resource type="Script" path="res://Scenes/Hand.gd" id="7_6iuy2"]
 [ext_resource type="PackedScene" uid="uid://beu0r8wimlkjb" path="res://Scenes/BootyGirl.tscn" id="7_nvek2"]
 
 [sub_resource type="Animation" id="Animation_gkh1p"]
