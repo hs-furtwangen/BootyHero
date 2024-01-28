@@ -159,3 +159,20 @@ func hit(type: String, action: String):
 	add_child(newPopup)
 	newPopup.position = get_node("targets/target_" + action.substr(0, 1)).position
 	newPopup.set_type(type)
+
+func is_action_active(action_to_check: String):
+	var time_to_check = currentTime - 0.1
+	for action in action_last_use:
+		if(action.begins_with(action_to_check) && action_last_use[action] > time_to_check):
+			return true
+	return false
+
+func what_is_currently_active():
+	var result = ""
+	if is_action_active("l"):
+		result += "l"
+	if is_action_active("r"):
+		result += "r"
+	if is_action_active("lr"):
+		result += "lr"
+	return result

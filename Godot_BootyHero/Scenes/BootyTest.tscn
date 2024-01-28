@@ -1,6 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://bw73aehe6adg"]
+[gd_scene load_steps=14 format=3 uid="uid://bw73aehe6adg"]
 
-[ext_resource type="Script" path="res://Scenes/BunnyManager.gd" id="1_oljup"]
+[ext_resource type="Script" path="res://scripts/BunnyManager.gd" id="1_mwuu6"]
 [ext_resource type="Texture2D" uid="uid://nh8fuxwbpsiw" path="res://Sprites/BunnyBody.PNG" id="2_ijtpo"]
 [ext_resource type="Texture2D" uid="uid://c0h8sslfwi784" path="res://Sprites/Paws Up/PawLeftUp.PNG" id="3_myfdw"]
 [ext_resource type="Texture2D" uid="uid://tj7rxwg582yc" path="res://Sprites/Paws Down/PawLeftDown.PNG" id="4_645uv"]
@@ -210,7 +210,7 @@ _data = {
 radius = 1.73794
 
 [node name="BootyTest" type="Node3D"]
-script = ExtResource("1_oljup")
+script = ExtResource("1_mwuu6")
 
 [node name="BootyBunny" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0249851, 1.13993, -1.68537)
@@ -227,8 +227,8 @@ transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0.205169, 0)
 texture = ExtResource("2_ijtpo")
 
 [node name="PawLeft" type="Sprite3D" parent="BootyBunny"]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0.206, 0.044)
-texture = ExtResource("3_myfdw")
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0.206, 0.25)
+texture = ExtResource("4_645uv")
 
 [node name="RigidBody3DLeft" type="RigidBody3D" parent="BootyBunny/PawLeft"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.64543, 0.342757, 5.77414)
@@ -238,9 +238,8 @@ collision_mask = 3
 shape = SubResource("SphereShape3D_257pe")
 
 [node name="PawRight" type="Sprite3D" parent="BootyBunny"]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0.206, 0.044)
-texture = ExtResource("4_lgqg7")
-script = ExtResource("7_6iuy2")
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -0.005, 0.2, 0.25)
+texture = ExtResource("5_hwjq8")
 
 [node name="RigidBody3DRight" type="RigidBody3D" parent="BootyBunny/PawRight"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.279, 0.342416, 5.774)
@@ -257,7 +256,7 @@ near = 0.001
 far = 4018.35
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.642279, 0.766471, 0, -0.766471, -0.642279, 0, 3.15686, -0.671878)
+transform = Transform3D(1, 0, 0, 0, -0.642279, 0.766471, 0, -0.766471, -0.642279, 0, 3.15686, -1.05884)
 light_color = Color(1, 0.909804, 0.909804, 1)
 light_indirect_energy = 0.0
 shadow_bias = 0.0
@@ -269,8 +268,11 @@ directional_shadow_fade_start = 0.59
 directional_shadow_pancake_size = 29.3
 
 [node name="OmniLight3D" type="OmniLight3D" parent="DirectionalLight3D"]
-light_energy = 1.97
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.723817, -1.27611)
 light_volumetric_fog_energy = 0.0
+omni_range = 18.1146
 
 [node name="BootyGirl" parent="." instance=ExtResource("7_nvek2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.63344)
+
+[connection signal="clap" from="." to="BootyGirl" method="_on_booty_test_clap"]

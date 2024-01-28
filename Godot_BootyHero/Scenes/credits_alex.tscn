@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://76tdvvc6t01h"]
+
+[node name="Credits" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 549.0
+offset_top = 170.0
+offset_right = 717.0
+offset_bottom = 333.0
+text = "Made By
+	ASPePeX
+	Hexadezimal
+	Lankea
+	MoonMoon
+	Plagiatus
+
+"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 295.0
+offset_top = 398.0
+offset_right = 996.0
+offset_bottom = 560.0
+text = "Songs
+	\"Take It Off Vs Shake That (Brandon James Mashup)\" by DJ Brandon James
+	\"KC AND THE SUNSHINE BAND - SHAKE YOUR BOOTY GETDOWN RMX\" by DJ GETDOWN
+	\"Groovy Godzilla - Space Dandy\" by TriangleMusic
+	\"Farting Around\" by Kevin MacLeod "

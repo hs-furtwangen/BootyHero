@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ciwqg"]
 [ext_resource type="Texture2D" uid="uid://dydydocnbv4eq" path="res://Sprites/hit_elements/lc.png" id="2_8hevq"]
 [ext_resource type="Texture2D" uid="uid://b3yivkbt4pujc" path="res://Sprites/hit_elements/rc.png" id="3_c3akh"]
-[ext_resource type="PackedScene" path="res://Scenes/GameUI.tscn" id="4_5np4p"]
+[ext_resource type="PackedScene" uid="uid://0lsu1uvk5bpu" path="res://Scenes/GameUI.tscn" id="4_5np4p"]
 
 [sub_resource type="Theme" id="Theme_s0aoa"]
 /font_sizes/Label = 32
