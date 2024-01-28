@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://hk4drtq0mir0"]
+[gd_scene load_steps=8 format=3 uid="uid://hk4drtq0mir0"]
 
 [ext_resource type="Texture2D" uid="uid://b6fambk26vg2q" path="res://ui_titel/background_start.png" id="1_wphbe"]
 [ext_resource type="Texture2D" uid="uid://drg35ynt30o50" path="res://ui_titel/Curtains_start.png" id="2_kvjkk"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c2twu2o2wkmj5" path="res://ui_titel/Butt_start.png" id="4_qmx6x"]
 [ext_resource type="PackedScene" uid="uid://ccycvh6i5ojun" path="res://Scenes/ScrollContainer.tscn" id="5_qt7hv"]
 [ext_resource type="Texture2D" uid="uid://bj5j3e0sroi1j" path="res://ui_titel/Usb_normal_start.png" id="5_tajk5"]
+[ext_resource type="PackedScene" uid="uid://b70ewtkcgb2jw" path="res://Scenes/credits.tscn" id="6_sjye4"]
 
 [node name="TitelScreen" type="Control"]
 layout_mode = 3
@@ -66,6 +67,7 @@ layout_mode = 1
 grow_horizontal = 2
 grow_vertical = 2
 scroll_duration = 0.3
+scenes = Array[PackedScene]([ExtResource("6_sjye4")])
 
 [node name="CenterContainer2" type="CenterContainer" parent="ScrollContainer"]
 layout_mode = 2
@@ -87,37 +89,160 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 150
 
-[node name="CardMenu1" type="TextureRect" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
+[node name="Usb1" type="TextureRect" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 texture = ExtResource("5_tajk5")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="CardMenu2" type="TextureRect" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/Usb1"]
+layout_mode = 0
+offset_left = -59.0
+offset_top = -333.0
+offset_right = 141.0
+offset_bottom = -33.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]
+Song 1
+
+Difficulty:
+Easy
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 1
+
+[node name="Usb2" type="TextureRect" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 texture = ExtResource("5_tajk5")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="CardMenu3" type="TextureRect" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/Usb2"]
+visible = false
+layout_mode = 0
+offset_left = -59.0
+offset_top = -333.0
+offset_right = 141.0
+offset_bottom = -33.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]
+Song 2
+
+Difficulty:
+Medium
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 1
+
+[node name="Usb3" type="TextureRect" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 texture = ExtResource("5_tajk5")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="CardMenu4" type="TextureRect" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/Usb3"]
+visible = false
+layout_mode = 0
+offset_left = -59.0
+offset_top = -333.0
+offset_right = 141.0
+offset_bottom = -33.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]
+Song 3
+
+Difficulty:
+Hard
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 1
+
+[node name="credits" type="TextureRect" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 texture = ExtResource("5_tajk5")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="CardMenu5" type="TextureRect" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/credits"]
+visible = false
+layout_mode = 0
+offset_left = -59.0
+offset_top = -333.0
+offset_right = 141.0
+offset_bottom = -33.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]
+
+Credits
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 1
+
+[node name="howTo" type="TextureRect" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 texture = ExtResource("5_tajk5")
 expand_mode = 1
 stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/howTo"]
+visible = false
+layout_mode = 0
+offset_left = -59.0
+offset_top = -333.0
+offset_right = 141.0
+offset_bottom = -33.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]
+
+How To
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 1
+
+[node name="quit" type="TextureRect" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+focus_neighbor_left = NodePath("../howTo")
+focus_next = NodePath("../Usb1")
+focus_previous = NodePath("../howTo")
+texture = ExtResource("5_tajk5")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/quit"]
+visible = false
+layout_mode = 0
+offset_left = -59.0
+offset_top = -333.0
+offset_right = 141.0
+offset_bottom = -33.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]
+
+Quit
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 1
