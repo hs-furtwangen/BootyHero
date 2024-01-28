@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://tj7rxwg582yc" path="res://Sprites/Paws Down/PawLeftDown.PNG" id="4_645uv"]
 [ext_resource type="Texture2D" uid="uid://ds7e7wvwhlmty" path="res://Sprites/Paws Up/PawRightUp.PNG" id="4_lgqg7"]
 [ext_resource type="Texture2D" uid="uid://catnchf02aw24" path="res://Sprites/Paws Down/PawRightDown.PNG" id="5_hwjq8"]
+[ext_resource type="Script" path="res://Scenes/Hand.gd" id="7_6iuy2"]
 [ext_resource type="PackedScene" uid="uid://beu0r8wimlkjb" path="res://Scenes/BootyGirl.tscn" id="7_nvek2"]
 
 [sub_resource type="Animation" id="Animation_gkh1p"]
@@ -182,6 +183,20 @@ tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = PackedFloat32Array(0, 1, 0, 0.206006, 0, 0.5, 1, 0, 0.196, 0, 1, 1, 0, 0.206, 0)
+tracks/5/type = "position_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../PawLeft/RigidBody3DLeft")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -6.64547, 0.600372, 5.77415, 0.5, 1, -6.645, -2.5, 5.774, 1, 1, -6.64547, 0.600372, 5.77415)
+tracks/6/type = "position_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../PawRight/RigidBody3DRight")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 4.279, 0.6, 5.774, 0.5, 1, 4.279, -2.5, 5.774, 1, 1, 4.279, 0.6, 5.774)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_67aen"]
 _data = {
@@ -190,6 +205,9 @@ _data = {
 "PawDownRight": SubResource("Animation_qc2fr"),
 "PawIdle": SubResource("Animation_w8vcn")
 }
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_257pe"]
+radius = 1.73794
 
 [node name="BootyTest" type="Node3D"]
 script = ExtResource("1_mwuu6")
@@ -205,12 +223,19 @@ libraries = {
 autoplay = "PawIdle"
 
 [node name="Bunny Body" type="Sprite3D" parent="BootyBunny"]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0.206006, 0)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0.205169, 0)
 texture = ExtResource("2_ijtpo")
 
 [node name="PawLeft" type="Sprite3D" parent="BootyBunny"]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0.206, 0.25)
 texture = ExtResource("4_645uv")
+
+[node name="RigidBody3DLeft" type="RigidBody3D" parent="BootyBunny/PawLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.64543, 0.342757, 5.77414)
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BootyBunny/PawLeft/RigidBody3DLeft"]
+shape = SubResource("SphereShape3D_257pe")
 
 [node name="PawRight" type="Sprite3D" parent="BootyBunny"]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -0.005, 0.2, 0.25)
