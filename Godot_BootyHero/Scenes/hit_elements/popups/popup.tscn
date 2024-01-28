@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfqgsjshvm0gf"]
+
+[ext_resource type="Texture2D" uid="uid://c1emmhn2siypb" path="res://Sprites/hit_elements/popups/miss.png" id="1_igqsi"]
+[ext_resource type="Script" path="res://scripts/popup.gd" id="1_t4546"]
+
+[node name="element" type="Node2D"]
+script = ExtResource("1_t4546")
+
+[node name="icon" type="Sprite2D" parent="."]
+texture = ExtResource("1_igqsi")

@@ -1,6 +1,6 @@
 extends Node2D
 
-var real_booty_mode = true;
+var real_booty_mode = false;
 
 var song_data;
 var fly_in_time = 1
@@ -16,6 +16,8 @@ var action_last_use = {}
 var points = 0
 var multiplier = 1
 var heat = 0
+
+@onready var popup = preload("res://Scenes/hit_elements/popups/popup.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -147,9 +149,13 @@ func hit(type: String, action: String):
 		if(multiplier > 5):
 			multiplier = 10
 			heat += 25
-	
-	points += floor((multiplier + min(heat / 25, 10)) * 10)
+	if(type != "miss"):
+		points += floor((multiplier + min(heat / 25, 10)) * 10)
 	
 	get_node("Control/multiplier").text = "[center]%sx[/center]" % multiplier
 	get_node("Control/heatBar").value = heat
 	get_node("Control/points").text = "[center]%s[/center]" % points
+	var newPopup = popup.instantiate()
+	add_child(newPopup)
+	newPopup.position = get_node("targets/target_" + action.substr(0, 1)).position
+	newPopup.set_type(type)
