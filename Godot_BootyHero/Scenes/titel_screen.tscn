@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://hk4drtq0mir0"]
+[gd_scene load_steps=10 format=3 uid="uid://hk4drtq0mir0"]
 
 [ext_resource type="Texture2D" uid="uid://b6fambk26vg2q" path="res://ui_titel/background_start.png" id="1_wphbe"]
 [ext_resource type="Texture2D" uid="uid://drg35ynt30o50" path="res://ui_titel/Curtains_start.png" id="2_kvjkk"]
 [ext_resource type="Texture2D" uid="uid://5uvmie0jhhwf" path="res://ui_titel/Ligth_start.png" id="3_7qmw5"]
 [ext_resource type="Texture2D" uid="uid://c2twu2o2wkmj5" path="res://ui_titel/Butt_start.png" id="4_qmx6x"]
+[ext_resource type="Texture2D" uid="uid://bitcnq5q2pgr1" path="res://ui_titel/game_title.png" id="5_2txcb"]
 [ext_resource type="PackedScene" uid="uid://ccycvh6i5ojun" path="res://Scenes/ScrollContainer.tscn" id="5_qt7hv"]
 [ext_resource type="Texture2D" uid="uid://bj5j3e0sroi1j" path="res://ui_titel/Usb_normal_start.png" id="5_tajk5"]
 [ext_resource type="PackedScene" uid="uid://cjlqo8rnqxhcu" path="res://Scenes/game.tscn" id="7_aomje"]
@@ -64,6 +65,17 @@ offset_top = 532.0
 offset_right = 886.0
 offset_bottom = 741.0
 texture = ExtResource("4_qmx6x")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Title" type="TextureRect" parent="MainMenu/Images"]
+custom_minimum_size = Vector2(300, 130)
+layout_mode = 0
+offset_left = 386.0
+offset_top = 532.0
+offset_right = 886.0
+offset_bottom = 741.0
+texture = ExtResource("5_2txcb")
 expand_mode = 1
 stretch_mode = 4
 
@@ -286,31 +298,3 @@ Quit
 fit_content = true
 scroll_active = false
 autowrap_mode = 1
-
-[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu"]
-layout_mode = 0
-offset_left = 443.0
-offset_top = 599.0
-offset_right = 629.0
-offset_bottom = 675.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 50
-bbcode_enabled = true
-text = "BOOTY"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="MainMenu"]
-layout_mode = 0
-offset_left = 674.0
-offset_top = 592.0
-offset_right = 824.0
-offset_bottom = 668.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 55
-bbcode_enabled = true
-text = "HERO"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
