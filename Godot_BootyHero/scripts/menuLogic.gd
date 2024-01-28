@@ -79,23 +79,28 @@ func load_scene() -> void:
 				rootObject.add_child(newScene)
 				mainMenu.queue_free()
 		elif usb_nodes[usb_current_index].name.contains("game") && scene.resource_path.contains("game"):
+			
 			if usb_nodes[usb_current_index].name.contains("game_1"):
 				var gameScene = load(scene.resource_path).instantiate()
+				print("res://songs/space_dandy/")
 				rootObject.add_child(gameScene)
 				gameScene.read_data("res://songs/space_dandy/")
 				mainMenu.queue_free()
 			elif usb_nodes[usb_current_index].name.contains("game_2"):
 				var gameScene = load(scene.resource_path).instantiate()
+				print("res://songs/Take_It_Off_Vs_Shake_That/")
 				rootObject.add_child(gameScene)
-				gameScene.read_data("res://songs/space_dandy/")
+				gameScene.read_data("res://songs/Take_It_Off_Vs_Shake_That/")
 				mainMenu.queue_free()
 			elif usb_nodes[usb_current_index].name.contains("game_3"):
 				var gameScene = load(scene.resource_path).instantiate()
+				print("res://songs/Shake_Your_Booty/")
 				rootObject.add_child(gameScene)
-				gameScene.read_data("res://songs/space_dandy/")
+				gameScene.read_data("res://songs/Shake_Your_Booty/")
 				mainMenu.queue_free()
 			else:
 				var gameScene = load(scene.resource_path).instantiate()
+				print("res://songs/farting_around/")
 				rootObject.add_child(gameScene)
 				gameScene.read_data("res://songs/farting_around/")
 				mainMenu.queue_free()

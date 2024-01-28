@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://hk4drtq0mir0"]
+[gd_scene load_steps=9 format=3 uid="uid://hk4drtq0mir0"]
 
 [ext_resource type="Texture2D" uid="uid://b6fambk26vg2q" path="res://ui_titel/background_start.png" id="1_wphbe"]
 [ext_resource type="Texture2D" uid="uid://drg35ynt30o50" path="res://ui_titel/Curtains_start.png" id="2_kvjkk"]
@@ -6,9 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://c2twu2o2wkmj5" path="res://ui_titel/Butt_start.png" id="4_qmx6x"]
 [ext_resource type="PackedScene" uid="uid://ccycvh6i5ojun" path="res://Scenes/ScrollContainer.tscn" id="5_qt7hv"]
 [ext_resource type="Texture2D" uid="uid://bj5j3e0sroi1j" path="res://ui_titel/Usb_normal_start.png" id="5_tajk5"]
-[ext_resource type="PackedScene" path="res://Scenes/credits.tscn" id="6_sjye4"]
+[ext_resource type="PackedScene" uid="uid://cjlqo8rnqxhcu" path="res://Scenes/game.tscn" id="7_aomje"]
+[ext_resource type="PackedScene" path="res://Scenes/credits_alex.tscn" id="7_m52tl"]
 
-[node name="TitelScreen" type="Control"]
+[node name="Root" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,12 +17,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Images" type="Control" parent="."]
+[node name="MainMenu" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="Images" type="Control" parent="MainMenu"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Background" type="TextureRect" parent="Images"]
+[node name="Background" type="TextureRect" parent="MainMenu/Images"]
 custom_minimum_size = Vector2(1280, 720)
 layout_mode = 2
 offset_left = 1.0
@@ -31,7 +37,7 @@ offset_bottom = 722.0
 texture = ExtResource("1_wphbe")
 expand_mode = 1
 
-[node name="Curtains" type="TextureRect" parent="Images"]
+[node name="Curtains" type="TextureRect" parent="MainMenu/Images"]
 custom_minimum_size = Vector2(1280, 720)
 layout_mode = 0
 offset_right = 1280.0
@@ -40,7 +46,7 @@ texture = ExtResource("2_kvjkk")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Ligth" type="TextureRect" parent="Images"]
+[node name="Ligth" type="TextureRect" parent="MainMenu/Images"]
 custom_minimum_size = Vector2(1280, 720)
 layout_mode = 0
 offset_left = 1.0
@@ -50,7 +56,7 @@ texture = ExtResource("3_7qmw5")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Butt" type="TextureRect" parent="Images"]
+[node name="Butt" type="TextureRect" parent="MainMenu/Images"]
 custom_minimum_size = Vector2(300, 130)
 layout_mode = 0
 offset_left = 386.0
@@ -61,21 +67,23 @@ texture = ExtResource("4_qmx6x")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="ScrollContainer" parent="." instance=ExtResource("5_qt7hv")]
+[node name="ScrollContainer" parent="MainMenu" node_paths=PackedStringArray("mainMenu", "rootObject") instance=ExtResource("5_qt7hv")]
 clip_contents = false
 layout_mode = 1
 grow_horizontal = 2
 grow_vertical = 2
 scroll_duration = 0.3
-scenes = Array[PackedScene]([ExtResource("6_sjye4")])
+mainMenu = NodePath("..")
+rootObject = NodePath("../..")
+scenes = Array[PackedScene]([ExtResource("7_aomje"), ExtResource("7_m52tl")])
 
-[node name="CenterContainer2" type="CenterContainer" parent="ScrollContainer"]
+[node name="CenterContainer2" type="CenterContainer" parent="MainMenu/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 4
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/CenterContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu/ScrollContainer/CenterContainer2"]
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 mouse_filter = 2
@@ -83,30 +91,32 @@ theme_override_constants/margin_left = 600
 theme_override_constants/margin_top = 360
 theme_override_constants/margin_right = 600
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/CenterContainer2/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer"]
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 150
 
-[node name="Usb1" type="TextureRect" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
+[node name="game_3" type="TextureRect" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 texture = ExtResource("5_tajk5")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/Usb1"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/game_3"]
 layout_mode = 0
 offset_left = -59.0
-offset_top = -333.0
+offset_top = -378.0
 offset_right = 141.0
-offset_bottom = -33.0
+offset_bottom = 7.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "[center]
-Song 1
+Shake 
+Your
+Booty
 
 Difficulty:
 Easy
@@ -115,14 +125,14 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 1
 
-[node name="Usb2" type="TextureRect" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
+[node name="game_1" type="TextureRect" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 texture = ExtResource("5_tajk5")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/Usb2"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/game_1"]
 visible = false
 layout_mode = 0
 offset_left = -59.0
@@ -133,7 +143,36 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "[center]
-Song 2
+Space 
+Dandy
+
+Difficulty:
+Easy
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 1
+
+[node name="game_2" type="TextureRect" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+texture = ExtResource("5_tajk5")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/game_2"]
+visible = false
+layout_mode = 0
+offset_left = -115.0
+offset_top = -389.0
+offset_right = 185.0
+offset_bottom = 161.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]
+Take It Off  vs 
+Shake That
 
 Difficulty:
 Medium
@@ -142,25 +181,26 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 1
 
-[node name="Usb3" type="TextureRect" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
+[node name="game_4" type="TextureRect" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 texture = ExtResource("5_tajk5")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/Usb3"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/game_4"]
 visible = false
 layout_mode = 0
-offset_left = -59.0
-offset_top = -333.0
-offset_right = 141.0
-offset_bottom = -33.0
+offset_left = -61.0
+offset_top = -353.0
+offset_right = 139.0
+offset_bottom = -23.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "[center]
-Song 3
+Farting 
+Around
 
 Difficulty:
 Hard
@@ -169,14 +209,14 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 1
 
-[node name="credits" type="TextureRect" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
+[node name="credits" type="TextureRect" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 texture = ExtResource("5_tajk5")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/credits"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/credits"]
 visible = false
 layout_mode = 0
 offset_left = -59.0
@@ -194,14 +234,14 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 1
 
-[node name="howTo" type="TextureRect" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
+[node name="howTo" type="TextureRect" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 texture = ExtResource("5_tajk5")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/howTo"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/howTo"]
 visible = false
 layout_mode = 0
 offset_left = -59.0
@@ -219,17 +259,17 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 1
 
-[node name="quit" type="TextureRect" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
+[node name="quit" type="TextureRect" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 focus_neighbor_left = NodePath("../howTo")
-focus_next = NodePath("../Usb1")
+focus_next = NodePath("../game_1")
 focus_previous = NodePath("../howTo")
 texture = ExtResource("5_tajk5")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/quit"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/quit"]
 visible = false
 layout_mode = 0
 offset_left = -59.0

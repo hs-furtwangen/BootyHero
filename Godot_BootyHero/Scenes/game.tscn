@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ciwqg"]
 [ext_resource type="Texture2D" uid="uid://dydydocnbv4eq" path="res://Sprites/hit_elements/lc.png" id="2_8hevq"]
 [ext_resource type="Texture2D" uid="uid://b3yivkbt4pujc" path="res://Sprites/hit_elements/rc.png" id="3_c3akh"]
-[ext_resource type="PackedScene" uid="uid://0lsu1uvk5bpu" path="res://Scenes/GameUI.tscn" id="4_5np4p"]
+[ext_resource type="PackedScene" path="res://Scenes/GameUI.tscn" id="4_5np4p"]
 
 [sub_resource type="Theme" id="Theme_s0aoa"]
 /font_sizes/Label = 32
@@ -52,6 +52,11 @@ position = Vector2(1300, 0)
 [node name="Node2D" parent="." instance=ExtResource("4_5np4p")]
 metadata/_edit_lock_ = true
 
+[node name="song_progress" type="ProgressBar" parent="."]
+offset_top = 693.0
+offset_right = 1284.0
+offset_bottom = 720.0
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 5
@@ -97,10 +102,3 @@ theme_override_font_sizes/normal_font_size = 42
 bbcode_enabled = true
 text = "[center]0[/center]"
 metadata/_edit_lock_ = true
-
-[node name="song_progress" type="ProgressBar" parent="."]
-offset_left = -4.0
-offset_top = 692.0
-offset_right = 1279.0
-offset_bottom = 719.0
-show_percentage = false
