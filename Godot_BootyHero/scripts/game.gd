@@ -17,11 +17,13 @@ var points = 0
 var multiplier = 1
 var heat = 0
 
+var total_song_duration = 0
+
 @onready var popup = preload("res://Scenes/hit_elements/popups/popup.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	##read_data("res://songs/space_dandy/")
+	#read_data("res://songs/farting_around/")
 	#read_zip_file("res://songs/farting_around.zip")
 	pass # Replace with function body.
 
@@ -31,6 +33,7 @@ func _process(delta):
 		$AudioStreamPlayer.play()
 	currentTime += delta
 	var time_to_appear = currentTime + fly_in_time
+	if(!song_data): return
 	for section in song_data.sections:
 		#print(currentTime, " ", section.start, " ", section.end)
 		if(section.start > time_to_appear || section.end < time_to_appear):
@@ -43,9 +46,15 @@ func _process(delta):
 		if(section.last_beat && section.last_beat == index):
 			continue
 		section.last_beat = index;
-		for note in section.notes_to_spawn[index]:
-			spawn_note(note, time_to_appear)
-			
+		if section.notes_to_spawn.size() > index:
+			for note in section.notes_to_spawn[index]:
+				spawn_note(note, time_to_appear)
+	$song_progress.value = currentTime
+	if (currentTime > total_song_duration + 4):
+		var titlescreen = load("res://Scenes/titel_screen.tscn").instantiate()
+		get_tree().root.add_child(titlescreen)
+		queue_free()
+		
 
 
 func read_data(file):
@@ -65,6 +74,9 @@ func read_data(file):
 				if(section.notes[note].has(beat)):
 					notes.append(note)
 			section.notes_to_spawn.append(notes)
+		if section.end > total_song_duration:
+			total_song_duration = section.end
+	$song_progress.max_value = total_song_duration
 
 func read_zip_file(file):
 	var reader := ZIPReader.new();

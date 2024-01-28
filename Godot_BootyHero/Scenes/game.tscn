@@ -97,3 +97,10 @@ theme_override_font_sizes/normal_font_size = 42
 bbcode_enabled = true
 text = "[center]0[/center]"
 metadata/_edit_lock_ = true
+
+[node name="song_progress" type="ProgressBar" parent="."]
+offset_left = -4.0
+offset_top = 692.0
+offset_right = 1279.0
+offset_bottom = 719.0
+show_percentage = false

@@ -2,13 +2,13 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://cj5fd6cbwylve"
-path="res://.godot/imported/music.mp3-4e272f86e0dae66ba92f7fd73a7f329b.mp3str"
+uid="uid://dbiowt1koh4ax"
+path="res://.godot/imported/music.mp3-432c7c7f5d90b7e4a373fea49a780d51.mp3str"
 
 [deps]
 
-source_file="res://songs/farting_around/music.mp3"
-dest_files=["res://.godot/imported/music.mp3-4e272f86e0dae66ba92f7fd73a7f329b.mp3str"]
+source_file="res://songs/Farting_Around/music.mp3"
+dest_files=["res://.godot/imported/music.mp3-432c7c7f5d90b7e4a373fea49a780d51.mp3str"]
 
 [params]
 
