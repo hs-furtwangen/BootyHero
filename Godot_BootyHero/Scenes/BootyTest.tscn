@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://bw73aehe6adg"]
+[gd_scene load_steps=13 format=3 uid="uid://bw73aehe6adg"]
 
-[ext_resource type="PackedScene" uid="uid://bwlm72ifeo7ce" path="res://models/BootyGirl.fbx" id="1_44up2"]
+[ext_resource type="Script" path="res://Scenes/BunnyManager.gd" id="1_oljup"]
 [ext_resource type="Texture2D" uid="uid://nh8fuxwbpsiw" path="res://Sprites/BunnyBody.PNG" id="2_ijtpo"]
 [ext_resource type="Texture2D" uid="uid://c0h8sslfwi784" path="res://Sprites/Paws Up/PawLeftUp.PNG" id="3_myfdw"]
 [ext_resource type="Texture2D" uid="uid://tj7rxwg582yc" path="res://Sprites/Paws Down/PawLeftDown.PNG" id="4_645uv"]
 [ext_resource type="Texture2D" uid="uid://ds7e7wvwhlmty" path="res://Sprites/Paws Up/PawRightUp.PNG" id="4_lgqg7"]
 [ext_resource type="Texture2D" uid="uid://catnchf02aw24" path="res://Sprites/Paws Down/PawRightDown.PNG" id="5_hwjq8"]
+[ext_resource type="PackedScene" uid="uid://beu0r8wimlkjb" path="res://Scenes/BootyGirl.tscn" id="7_nvek2"]
 
 [sub_resource type="Animation" id="Animation_gkh1p"]
 resource_name = "PawDownBoth"
@@ -191,9 +192,7 @@ _data = {
 }
 
 [node name="BootyTest" type="Node3D"]
-
-[node name="Bootygirl" parent="." instance=ExtResource("1_44up2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.637)
+script = ExtResource("1_oljup")
 
 [node name="BootyBunny" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0249851, 1.13993, -1.68537)
@@ -239,3 +238,6 @@ directional_shadow_pancake_size = 29.3
 [node name="OmniLight3D" type="OmniLight3D" parent="DirectionalLight3D"]
 light_energy = 1.97
 light_volumetric_fog_energy = 0.0
+
+[node name="BootyGirl" parent="." instance=ExtResource("7_nvek2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.63344)
