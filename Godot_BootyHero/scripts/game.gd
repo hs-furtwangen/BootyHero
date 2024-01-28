@@ -21,7 +21,7 @@ var heat = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	read_data("res://songs/space_dandy/")
+	##read_data("res://songs/space_dandy/")
 	#read_zip_file("res://songs/farting_around.zip")
 	pass # Replace with function body.
 
