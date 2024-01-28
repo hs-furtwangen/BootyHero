@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c2twu2o2wkmj5" path="res://ui_titel/Butt_start.png" id="4_qmx6x"]
 [ext_resource type="PackedScene" uid="uid://ccycvh6i5ojun" path="res://Scenes/ScrollContainer.tscn" id="5_qt7hv"]
 [ext_resource type="Texture2D" uid="uid://bj5j3e0sroi1j" path="res://ui_titel/Usb_normal_start.png" id="5_tajk5"]
-[ext_resource type="PackedScene" uid="uid://b70ewtkcgb2jw" path="res://Scenes/credits.tscn" id="6_sjye4"]
+[ext_resource type="PackedScene" path="res://Scenes/credits.tscn" id="6_sjye4"]
 
 [node name="TitelScreen" type="Control"]
 layout_mode = 3

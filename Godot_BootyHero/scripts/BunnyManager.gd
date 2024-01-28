@@ -1,5 +1,7 @@
 extends Node3D
 
+signal clap(cheek)
+
 var action_last_use = {}
 var currentTime = 0
 var gameNode
@@ -14,17 +16,21 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	currentTime += delta
-	var state = gameNode.what_is_currently_active()
-	if(state == "l"):
-		animationPlayer.play("PawDownRight")
-	elif(state == "r"):
-		animationPlayer.play("PawDownLeft")
-	elif(state == "lr"):
-		animationPlayer.play("PawDownBoth")
-	else:
-		animationPlayer.play("PawIdle")
+	if (gameNode != null):
+		var state = gameNode.what_is_currently_active()
+		if(state == "l"):
+			animationPlayer.play("PawDownRight")
+			emit_signal("clap", "Right")
+		elif(state == "r"):
+			animationPlayer.play("PawDownLeft")
+			emit_signal("clap", "Left")
+		elif(state == "lr"):
+			animationPlayer.play("PawDownBoth")
+			emit_signal("clap", "Left")
+			emit_signal("clap", "Right")
+		else:
+			animationPlayer.play("PawIdle")
 func _input(event):
-	print("Input detected")
 	var action = ""
 	if(event.is_action_pressed("LC")):
 		action = "lc"

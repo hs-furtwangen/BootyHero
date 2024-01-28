@@ -255,7 +255,7 @@ near = 0.001
 far = 4018.35
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.642279, 0.766471, 0, -0.766471, -0.642279, 0, 3.15686, -0.671878)
+transform = Transform3D(1, 0, 0, 0, -0.642279, 0.766471, 0, -0.766471, -0.642279, 0, 3.15686, -1.05884)
 light_color = Color(1, 0.909804, 0.909804, 1)
 light_indirect_energy = 0.0
 shadow_bias = 0.0
@@ -267,8 +267,11 @@ directional_shadow_fade_start = 0.59
 directional_shadow_pancake_size = 29.3
 
 [node name="OmniLight3D" type="OmniLight3D" parent="DirectionalLight3D"]
-light_energy = 1.97
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.723817, -1.27611)
 light_volumetric_fog_energy = 0.0
+omni_range = 18.1146
 
 [node name="BootyGirl" parent="." instance=ExtResource("7_nvek2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.63344)
+
+[connection signal="clap" from="." to="BootyGirl" method="_on_booty_test_clap"]
