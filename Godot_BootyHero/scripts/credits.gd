@@ -1,5 +1,7 @@
 extends Node2D
 
+func _init():
+	print("test instance")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,5 +10,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var texture = $SubViewport.get_texture()
-	$Screen.texture = texture
+	pass

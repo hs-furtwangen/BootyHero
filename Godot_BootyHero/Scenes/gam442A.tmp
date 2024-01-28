@@ -19,7 +19,6 @@ script = ExtResource("1_ciwqg")
 position = Vector2(563, 600)
 
 [node name="Lc" type="Sprite2D" parent="targets/target_l"]
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_8hevq")
 metadata/_edit_lock_ = true
 
@@ -27,7 +26,6 @@ metadata/_edit_lock_ = true
 position = Vector2(752, 600)
 
 [node name="Rc" type="Sprite2D" parent="targets/target_r"]
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_c3akh")
 metadata/_edit_lock_ = true
 
@@ -99,10 +97,3 @@ theme_override_font_sizes/normal_font_size = 42
 bbcode_enabled = true
 text = "[center]0[/center]"
 metadata/_edit_lock_ = true
-
-[node name="song_progress" type="ProgressBar" parent="."]
-offset_left = 4.0
-offset_top = 699.0
-offset_right = 1282.0
-offset_bottom = 726.0
-show_percentage = false

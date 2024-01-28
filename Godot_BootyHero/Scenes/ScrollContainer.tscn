@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ccycvh6i5ojun"]
 
-[ext_resource type="Script" path="res://scripts/ScrollContainer.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/menuLogic.gd" id="5"]
 
 [node name="ScrollContainer" type="ScrollContainer"]
 anchors_preset = 15
