@@ -1,5 +1,7 @@
 extends Node2D
 
+var real_booty_mode = true;
+
 var song_data;
 var fly_in_time = 1
 var currentTime = -1 * fly_in_time * 2;
@@ -73,6 +75,8 @@ func read_zip_file(file):
 	
 func spawn_note(note: String, time: float):
 	#if(note != "lc"): return
+	if(real_booty_mode):
+		note = note.substr(0, 1) + "c"
 	if(!hit_elements.has(note)):
 		hit_elements[note] = load("res://Scenes/hit_elements/" + note + ".tscn")
 	var scene = hit_elements[note]
