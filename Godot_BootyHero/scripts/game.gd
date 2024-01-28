@@ -17,11 +17,13 @@ var points = 0
 var multiplier = 1
 var heat = 0
 
+var total_song_duration = 0
+
 @onready var popup = preload("res://Scenes/hit_elements/popups/popup.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	read_data("res://songs/space_dandy/")
+	read_data("res://songs/Take_It_Off_Vs_Shake_That_Brandon_James_Mashup/")
 	#read_zip_file("res://songs/farting_around.zip")
 	pass # Replace with function body.
 
@@ -43,9 +45,13 @@ func _process(delta):
 		if(section.last_beat && section.last_beat == index):
 			continue
 		section.last_beat = index;
-		for note in section.notes_to_spawn[index]:
-			spawn_note(note, time_to_appear)
-			
+		if section.notes_to_spawn.size() > index:
+			for note in section.notes_to_spawn[index]:
+				spawn_note(note, time_to_appear)
+	
+	$song_progress.value = currentTime
+	if(currentTime > total_song_duration + 5):
+		free()
 
 
 func read_data(file):
@@ -65,6 +71,9 @@ func read_data(file):
 				if(section.notes[note].has(beat)):
 					notes.append(note)
 			section.notes_to_spawn.append(notes)
+		if section.end > total_song_duration:
+			total_song_duration = section.end
+	$song_progress.max_value = total_song_duration
 
 func read_zip_file(file):
 	var reader := ZIPReader.new();
