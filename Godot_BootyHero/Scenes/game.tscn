@@ -6,3 +6,35 @@
 script = ExtResource("1_ciwqg")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="targets" type="Node2D" parent="."]
+
+[node name="target_l" type="Node2D" parent="targets"]
+position = Vector2(507, 398)
+
+[node name="target_r" type="Node2D" parent="targets"]
+position = Vector2(742, 393)
+
+[node name="target_lc" type="Node2D" parent="targets"]
+position = Vector2(507, 398)
+
+[node name="target_rc" type="Node2D" parent="targets"]
+position = Vector2(742, 393)
+
+[node name="target_lt" type="Node2D" parent="targets"]
+position = Vector2(217, -62)
+
+[node name="target_lb" type="Node2D" parent="targets"]
+position = Vector2(227, 776)
+
+[node name="target_ll" type="Node2D" parent="targets"]
+position = Vector2(-155, 383)
+
+[node name="target_rt" type="Node2D" parent="targets"]
+position = Vector2(1015, -60)
+
+[node name="target_rb" type="Node2D" parent="targets"]
+position = Vector2(1106, 795)
+
+[node name="target_rr" type="Node2D" parent="targets"]
+position = Vector2(1434, 380)

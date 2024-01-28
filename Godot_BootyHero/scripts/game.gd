@@ -1,10 +1,13 @@
 extends Node2D
 
 var song_data;
-var fly_in_time = 3;
+var fly_in_time = 3
 #var currentTime = -1 * fly_in_time * 2;
-var currentTime = -0.5;
+var currentTime = -0.5
 var notes_per_beat = 8
+
+var hit_elements = {}
+var active_elements = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,7 +34,9 @@ func _process(delta):
 			continue
 		section.last_beat = index;
 		for note in section.notes_to_spawn[index]:
-			spawn_note(note)
+			spawn_note(note, time_to_appear)
+			
+	
 
 
 func read_data(file):
@@ -61,7 +66,19 @@ func read_zip_file(file):
 	var music := reader.read_file("music.ogg")
 	$AudioStreamPlayer.play()
 	
-func spawn_note(note):
-	var scene = load("res://Scenes/hit_elements/" + note + ".tscn")
-	var newNote = scene.instance()
+func spawn_note(note: String, time: float):
+	if(note != "lc"): return
+	if(!hit_elements.has(note)):
+		hit_elements[note] = load("res://Scenes/hit_elements/" + note + ".tscn")
+	var scene = hit_elements[note]
+	if(!scene): return
+	var newNote = scene.instantiate()
 	add_child(newNote)
+	active_elements.append(newNote)
+	
+	var start_target_node = get_node("targets/target_" + note)
+	var target_target_node = get_node("targets/target_" + note.substr(0, 1))
+	newNote.setup(start_target_node.position, target_target_node.position, time, currentTime)
+
+func _input(event):
+	print(event.as_text())

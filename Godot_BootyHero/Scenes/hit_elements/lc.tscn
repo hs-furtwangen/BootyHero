@@ -6,5 +6,5 @@
 [node name="LC" type="Node"]
 script = ExtResource("1_n5svl")
 
-[node name="Lc" type="Sprite2D" parent="."]
+[node name="icon" type="Sprite2D" parent="."]
 texture = ExtResource("1_s3fis")
