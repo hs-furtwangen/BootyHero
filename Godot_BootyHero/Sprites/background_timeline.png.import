@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tj7rxwg582yc"
-path.s3tc="res://.godot/imported/PawLeftDown.PNG-8feae64842c235e29a302bed2dfe82ef.s3tc.ctex"
+uid="uid://cew24gxwhl8fm"
+path.s3tc="res://.godot/imported/background_timeline.png-04f6ba8e2677d3c59c492d415fe1dfc5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Sprites/Paws Down/PawLeftDown.PNG"
-dest_files=["res://.godot/imported/PawLeftDown.PNG-8feae64842c235e29a302bed2dfe82ef.s3tc.ctex"]
+source_file="res://Sprites/background_timeline.png"
+dest_files=["res://.godot/imported/background_timeline.png-04f6ba8e2677d3c59c492d415fe1dfc5.s3tc.ctex"]
 
 [params]
 
