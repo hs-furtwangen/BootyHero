@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://tj7rxwg582yc" path="res://Sprites/Paws Down/PawLeftDown.PNG" id="4_645uv"]
 [ext_resource type="Texture2D" uid="uid://ds7e7wvwhlmty" path="res://Sprites/Paws Up/PawRightUp.PNG" id="4_lgqg7"]
 [ext_resource type="Texture2D" uid="uid://catnchf02aw24" path="res://Sprites/Paws Down/PawRightDown.PNG" id="5_hwjq8"]
-[ext_resource type="Script" path="res://Scenes/Hand.gd" id="7_6iuy2"]
 [ext_resource type="PackedScene" uid="uid://beu0r8wimlkjb" path="res://Scenes/BootyGirl.tscn" id="7_nvek2"]
 
 [sub_resource type="Animation" id="Animation_gkh1p"]
@@ -258,18 +257,16 @@ far = 4018.35
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.642279, 0.766471, 0, -0.766471, -0.642279, 0, 3.15686, -1.05884)
 light_color = Color(1, 0.909804, 0.909804, 1)
-light_indirect_energy = 0.0
 shadow_bias = 0.0
 shadow_normal_bias = 0.788
 shadow_transmittance_bias = -9.647
 shadow_blur = 1.404
 directional_shadow_split_3 = 0.382
-directional_shadow_fade_start = 0.59
 directional_shadow_pancake_size = 29.3
 
 [node name="OmniLight3D" type="OmniLight3D" parent="DirectionalLight3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.723817, -1.27611)
-light_volumetric_fog_energy = 0.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.951606, -1.54794)
+light_specular = 1.0
 omni_range = 18.1146
 
 [node name="BootyGirl" parent="." instance=ExtResource("7_nvek2")]
