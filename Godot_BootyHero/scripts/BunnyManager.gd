@@ -2,19 +2,29 @@ extends Node3D
 
 var action_last_use = {}
 var currentTime = 0
+var gameNode
+var animationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
+	print("Bunny Ready") # Replace with function body.
+	gameNode = get_node("../../../../game")
+	animationPlayer = get_node("BootyBunny/AnimationPlayer")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	currentTime += delta
-	pass
-	
+	var state = gameNode.what_is_currently_active()
+	if(state == "l"):
+		animationPlayer.play("PawDownRight")
+	elif(state == "r"):
+		animationPlayer.play("PawDownLeft")
+	elif(state == "lr"):
+		animationPlayer.play("PawDownBoth")
+	else:
+		animationPlayer.play("PawIdle")
 func _input(event):
+	print("Input detected")
 	var action = ""
 	if(event.is_action_pressed("LC")):
 		action = "lc"
@@ -36,18 +46,6 @@ func _input(event):
 	if (!action_last_use.has(action)):
 		action_last_use[action] = 0
 	action_last_use[action] = currentTime
+	
 
-func is_action_active(action_to_check: String):
-	var time_to_check = currentTime - 0.1
-	for action in action_last_use:
-		if(action.starts_with(action_to_check) && action_last_use[action] > time_to_check):
-			return true
-	return false
 
-func what_is_currently_active():
-	var result = ""
-	if is_action_active("l"):
-		result += "l"
-	if is_action_active("r"):
-		result += "r"
-	return result
