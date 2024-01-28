@@ -1,14 +1,27 @@
 extends Node2D
 
+var real_booty_mode = false;
+
 var song_data;
-var fly_in_time = 3;
-#var currentTime = -1 * fly_in_time * 2;
-var currentTime = -0.5;
+var fly_in_time = 1
+var currentTime = -1 * fly_in_time * 2;
+#var currentTime = -0.5
 var notes_per_beat = 8
+var hit_cooldown = 0.1
+
+var hit_elements = {}
+var active_elements = {}
+var action_last_use = {}
+
+var points = 0
+var multiplier = 1
+var heat = 0
+
+@onready var popup = preload("res://Scenes/hit_elements/popups/popup.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	read_data("res://songs/farting_around/")
+	read_data("res://songs/space_dandy/")
 	#read_zip_file("res://songs/farting_around.zip")
 	pass # Replace with function body.
 
@@ -31,7 +44,8 @@ func _process(delta):
 			continue
 		section.last_beat = index;
 		for note in section.notes_to_spawn[index]:
-			spawn_note(note)
+			spawn_note(note, time_to_appear)
+			
 
 
 func read_data(file):
@@ -61,7 +75,87 @@ func read_zip_file(file):
 	var music := reader.read_file("music.ogg")
 	$AudioStreamPlayer.play()
 	
-func spawn_note(note):
-	var scene = load("res://Scenes/hit_elements/" + note + ".tscn")
-	var newNote = scene.instance()
+func spawn_note(note: String, time: float):
+	#if(note != "lc"): return
+	if(real_booty_mode):
+		note = note.substr(0, 1) + "c"
+	if(!hit_elements.has(note)):
+		hit_elements[note] = load("res://Scenes/hit_elements/" + note + ".tscn")
+	var scene = hit_elements[note]
+	if(!scene): return
+	var newNote = scene.instantiate()
 	add_child(newNote)
+	if(!active_elements.has(note)):
+		active_elements[note] = []
+	active_elements[note].append(newNote)
+	
+	var start_target_node = get_node("targets/target_" + note)
+	var target_target_node = get_node("targets/target_" + note.substr(0, 1))
+	newNote.setup(start_target_node.position, target_target_node.position, time, currentTime, note)
+
+func _input(event):
+	var action = ""
+	if(event.is_action_pressed("LC")):
+		action = "lc"
+	if(event.is_action_pressed("LL")):
+		action = "ll"
+	if(event.is_action_pressed("LT")):
+		action = "lt"
+	if(event.is_action_pressed("LB")):
+		action = "lb"
+	if(event.is_action_pressed("RC")):
+		action = "rc"
+	if(event.is_action_pressed("RR")):
+		action = "rr"
+	if(event.is_action_pressed("RT")):
+		action = "rt"
+	if(event.is_action_pressed("RB")):
+		action = "rb"
+	if (!action): return
+	if (!action_last_use.has(action)):
+		action_last_use[action] = 0
+	if (action_last_use[action] > currentTime - hit_cooldown):
+		return
+	action_last_use[action] = currentTime
+	if(!active_elements.has(action)):
+		hit("miss", action)
+		return
+	while active_elements[action].size() > 0 && !is_instance_valid(active_elements[action][0]):
+		active_elements[action].pop_front()
+	if(active_elements[action].size() == 0):
+		hit("miss", action)
+		return
+	var accuracy = active_elements[action][0].hitMe()
+	hit(accuracy, action)
+
+func hit(type: String, action: String):
+	match type:
+		"miss":
+			if(heat == 0):
+				if(multiplier > 5):
+					multiplier = 6
+				multiplier = max(multiplier - 1, 1)
+			heat = 0
+		"meh":
+			heat += 1
+		"good":
+			heat += 2
+		"perfect":
+			heat += 5
+	
+	if(heat >= 25 && multiplier < 10):
+		multiplier += 1
+		heat -= 25
+		if(multiplier > 5):
+			multiplier = 10
+			heat += 25
+	if(type != "miss"):
+		points += floor((multiplier + min(heat / 25, 10)) * 10)
+	
+	get_node("Control/multiplier").text = "[center]%sx[/center]" % multiplier
+	get_node("Control/heatBar").value = heat
+	get_node("Control/points").text = "[center]%s[/center]" % points
+	var newPopup = popup.instantiate()
+	add_child(newPopup)
+	newPopup.position = get_node("targets/target_" + action.substr(0, 1)).position
+	newPopup.set_type(type)

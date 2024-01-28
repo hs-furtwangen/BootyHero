@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7wk6bthg4l8l"]
+[gd_scene load_steps=2 format=3 uid="uid://2wkmjyq3sviq"]
 
 [ext_resource type="Script" path="res://scripts/keybinds.gd" id="1_fve38"]
 

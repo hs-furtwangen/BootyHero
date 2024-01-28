@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://cue7bcrixpgce"]
 
 [ext_resource type="Script" path="res://scripts/hit_element.gd" id="1_n5svl"]
-[ext_resource type="Texture2D" uid="uid://dydydocnbv4eq" path="res://Sprites/hit_elements/lc.png" id="1_s3fis"]
+[ext_resource type="Texture2D" uid="uid://ce0lro2ux6bw" path="res://Sprites/hit_elements/New Hit Elements/lc.PNG" id="2_oxrv7"]
 
 [node name="LC" type="Node"]
 script = ExtResource("1_n5svl")
 
-[node name="Lc" type="Sprite2D" parent="."]
-texture = ExtResource("1_s3fis")
+[node name="icon" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_oxrv7")

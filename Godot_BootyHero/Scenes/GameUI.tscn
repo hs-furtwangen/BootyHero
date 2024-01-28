@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ba3c0mi1e57cu"]
+
+[ext_resource type="Texture2D" uid="uid://cew24gxwhl8fm" path="res://Sprites/background_timeline.png" id="1_3jlk4"]
+[ext_resource type="PackedScene" uid="uid://bw73aehe6adg" path="res://Scenes/BootyTest.tscn" id="2_ss2q3"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qomcr"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="BootyTest" parent="SubViewport" instance=ExtResource("2_ss2q3")]
+
+[node name="BackgroundTimeline" type="Sprite2D" parent="."]
+position = Vector2(641, 361)
+scale = Vector2(0.334259, 0.334259)
+texture = ExtResource("1_3jlk4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(656, 463)
+texture = SubResource("ViewportTexture_qomcr")

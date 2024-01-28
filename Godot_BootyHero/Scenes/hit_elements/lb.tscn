@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd2qeq54bu4f0"]
+
+[ext_resource type="Script" path="res://scripts/hit_element.gd" id="1_1d1p0"]
+[ext_resource type="Texture2D" uid="uid://0uqxlyikb1ld" path="res://Sprites/hit_elements/New Hit Elements/lb.PNG" id="2_gdros"]
+
+[node name="LC" type="Node"]
+script = ExtResource("1_1d1p0")
+
+[node name="icon" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_gdros")

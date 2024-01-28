@@ -1,8 +1,99 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjlqo8rnqxhcu"]
+[gd_scene load_steps=6 format=3 uid="uid://cjlqo8rnqxhcu"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ciwqg"]
+[ext_resource type="Texture2D" uid="uid://dydydocnbv4eq" path="res://Sprites/hit_elements/lc.png" id="2_8hevq"]
+[ext_resource type="Texture2D" uid="uid://b3yivkbt4pujc" path="res://Sprites/hit_elements/rc.png" id="3_c3akh"]
+[ext_resource type="PackedScene" uid="uid://ba3c0mi1e57cu" path="res://Scenes/GameUI.tscn" id="4_5np4p"]
+
+[sub_resource type="Theme" id="Theme_s0aoa"]
+/font_sizes/Label = 32
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_ciwqg")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="targets" type="Node2D" parent="."]
+
+[node name="target_l" type="Node2D" parent="targets"]
+position = Vector2(563, 600)
+
+[node name="Lc" type="Sprite2D" parent="targets/target_l"]
+texture = ExtResource("2_8hevq")
+metadata/_edit_lock_ = true
+
+[node name="target_r" type="Node2D" parent="targets"]
+position = Vector2(752, 600)
+
+[node name="Rc" type="Sprite2D" parent="targets/target_r"]
+texture = ExtResource("3_c3akh")
+metadata/_edit_lock_ = true
+
+[node name="target_lc" type="Node2D" parent="targets"]
+
+[node name="target_rc" type="Node2D" parent="targets"]
+position = Vector2(1300, 0)
+
+[node name="target_lt" type="Node2D" parent="targets"]
+
+[node name="target_lb" type="Node2D" parent="targets"]
+
+[node name="target_ll" type="Node2D" parent="targets"]
+
+[node name="target_rt" type="Node2D" parent="targets"]
+position = Vector2(1300, 0)
+
+[node name="target_rb" type="Node2D" parent="targets"]
+position = Vector2(1300, 0)
+
+[node name="target_rr" type="Node2D" parent="targets"]
+position = Vector2(1300, 0)
+
+[node name="Node2D" parent="." instance=ExtResource("4_5np4p")]
+metadata/_edit_lock_ = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 1284.0
+offset_bottom = 100.0
+grow_horizontal = 2
+
+[node name="heatBar" type="ProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -156.5
+offset_right = 158.5
+offset_bottom = 29.0
+grow_horizontal = 2
+max_value = 25.0
+allow_greater = true
+show_percentage = false
+
+[node name="multiplier" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 767.0
+offset_right = 839.0
+offset_bottom = 59.0
+theme = SubResource("Theme_s0aoa")
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+text = "[center]1x[/center]"
+
+[node name="points" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 485.0
+offset_top = -4.0
+offset_right = 801.0
+offset_bottom = 55.0
+theme = SubResource("Theme_s0aoa")
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+text = "[center]0[/center]"
+metadata/_edit_lock_ = true
