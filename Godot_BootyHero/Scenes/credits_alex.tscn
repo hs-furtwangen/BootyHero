@@ -1,12 +1,32 @@
-[gd_scene format=3 uid="uid://76tdvvc6t01h"]
+[gd_scene load_steps=3 format=3 uid="uid://dsibx53l3n3nd"]
+
+[ext_resource type="Texture2D" uid="uid://b6fambk26vg2q" path="res://ui_titel/background_start.png" id="1_u4of4"]
+[ext_resource type="Texture2D" uid="uid://drg35ynt30o50" path="res://ui_titel/Curtains_start.png" id="2_35oov"]
 
 [node name="Credits" type="Node2D"]
 
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_u4of4")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -9.0
+offset_right = 3840.0
+offset_bottom = 2151.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_35oov")
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 549.0
-offset_top = 170.0
-offset_right = 717.0
-offset_bottom = 333.0
+offset_left = 1579.0
+offset_top = 391.0
+offset_right = 2859.0
+offset_bottom = 1391.0
+theme_override_font_sizes/normal_font_size = 100
 text = "Made By
 	ASPePeX
 	Hexadezimal
@@ -17,10 +37,11 @@ text = "Made By
 "
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
-offset_left = 295.0
-offset_top = 398.0
-offset_right = 996.0
-offset_bottom = 560.0
+offset_left = 409.0
+offset_top = 1467.0
+offset_right = 3909.0
+offset_bottom = 2267.0
+theme_override_font_sizes/normal_font_size = 74
 text = "Songs
 	\"Take It Off Vs Shake That (Brandon James Mashup)\" by DJ Brandon James
 	\"KC AND THE SUNSHINE BAND - SHAKE YOUR BOOTY GETDOWN RMX\" by DJ GETDOWN
