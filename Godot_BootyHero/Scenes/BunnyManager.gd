@@ -43,3 +43,11 @@ func is_action_active(action_to_check: String):
 		if(action.starts_with(action_to_check) && action_last_use[action] > time_to_check):
 			return true
 	return false
+
+func what_is_currently_active():
+	var result = ""
+	if is_action_active("l"):
+		result += "l"
+	if is_action_active("r"):
+		result += "r"
+	return result
