@@ -2,6 +2,9 @@ extends Node2D
 
 func _init():
 	print("test instance")
+	
+func loadStuff():
+	print("testStuff")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
