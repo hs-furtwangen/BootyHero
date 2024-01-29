@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://hk4drtq0mir0"]
+[gd_scene load_steps=11 format=3 uid="uid://hk4drtq0mir0"]
 
 [ext_resource type="Texture2D" uid="uid://b6fambk26vg2q" path="res://ui_titel/background_start.png" id="1_wphbe"]
 [ext_resource type="Texture2D" uid="uid://drg35ynt30o50" path="res://ui_titel/Curtains_start.png" id="2_kvjkk"]
@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://ccycvh6i5ojun" path="res://Scenes/ScrollContainer.tscn" id="5_qt7hv"]
 [ext_resource type="Texture2D" uid="uid://bj5j3e0sroi1j" path="res://ui_titel/Usb_normal_start.png" id="5_tajk5"]
 [ext_resource type="PackedScene" uid="uid://cjlqo8rnqxhcu" path="res://Scenes/game.tscn" id="7_aomje"]
-[ext_resource type="PackedScene" path="res://Scenes/credits_alex.tscn" id="7_m52tl"]
+[ext_resource type="PackedScene" uid="uid://dsibx53l3n3nd" path="res://Scenes/credits_alex.tscn" id="7_m52tl"]
+[ext_resource type="Script" path="res://scripts/input_manager.gd" id="10_x3qlh"]
 
 [node name="Root" type="Control"]
 layout_mode = 3
@@ -298,3 +299,8 @@ Quit
 fit_content = true
 scroll_active = false
 autowrap_mode = 1
+
+[node name="Inputmanager" type="Node" parent="."]
+script = ExtResource("10_x3qlh")
+
+[connection signal="input_received" from="Inputmanager" to="MainMenu/ScrollContainer" method="_on_inputmanager_input_received"]

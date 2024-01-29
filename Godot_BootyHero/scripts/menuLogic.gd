@@ -104,50 +104,8 @@ func load_scene() -> void:
 				rootObject.add_child(gameScene)
 				gameScene.read_data("res://songs/farting_around/")
 				mainMenu.queue_free()
-			
-func _input(event):
-	var action = ""
-	if(event.is_action_pressed("LC")):
-		action = "lc"
-	if(event.is_action_pressed("LL")):
-		action = "ll"
-	if(event.is_action_pressed("LT")):
-		action = "lt"
-	if(event.is_action_pressed("LB")):
-		action = "lb"
-	if(event.is_action_pressed("RC")):
-		action = "rc"
-	if(event.is_action_pressed("RR")):
-		action = "rr"
-	if(event.is_action_pressed("RT")):
-		action = "rt"
-	if(event.is_action_pressed("RB")):
-		action = "rb"
-	if (!action): return
-	if (!action_last_use.has(action)):
-		action_last_use[action] = 0
-	action_last_use[action] = currentTime
 
-	if event.is_echo():
-		scroll_tween.stop()
-	elif event.pressed:
-		got_input(what_is_currently_active())
-			
-func is_action_active(action_to_check: String):
-	var time_to_check = currentTime - 0.1
-	for action in action_last_use:
-		if(action.begins_with(action_to_check) && action_last_use[action] > time_to_check):
-			return true
-	return false
 
-func what_is_currently_active():
-	var result = ""
-	if is_action_active("lr"):
-		result += "lr"
-	if is_action_active("l"):
-		result += "l"
-	if is_action_active("r"):
-		result += "r"
-	return result
 
-	
+func _on_inputmanager_input_received(type):
+	got_input(type)

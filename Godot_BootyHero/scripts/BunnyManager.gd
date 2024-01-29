@@ -17,7 +17,7 @@ func _ready():
 func _process(delta):
 	currentTime += delta
 	if (gameNode != null):
-		var state = gameNode.what_is_currently_active()
+		var state = InputManager.what_is_currently_active()
 		if(state == "l"):
 			animationPlayer.play("PawDownRight")
 			emit_signal("clap", "Right")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjlqo8rnqxhcu"]
+[gd_scene load_steps=7 format=3 uid="uid://cjlqo8rnqxhcu"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ciwqg"]
+[ext_resource type="Script" path="res://scripts/input_manager.gd" id="1_fotoi"]
 [ext_resource type="Texture2D" uid="uid://dydydocnbv4eq" path="res://Sprites/hit_elements/lc.png" id="2_8hevq"]
 [ext_resource type="Texture2D" uid="uid://b3yivkbt4pujc" path="res://Sprites/hit_elements/rc.png" id="3_c3akh"]
 [ext_resource type="PackedScene" uid="uid://0lsu1uvk5bpu" path="res://Scenes/GameUI.tscn" id="4_5np4p"]
@@ -102,3 +103,8 @@ theme_override_font_sizes/normal_font_size = 42
 bbcode_enabled = true
 text = "[center]0[/center]"
 metadata/_edit_lock_ = true
+
+[node name="input_manager" type="Node" parent="."]
+script = ExtResource("1_fotoi")
+
+[connection signal="input_received" from="input_manager" to="." method="_on_input_manager_input_received"]

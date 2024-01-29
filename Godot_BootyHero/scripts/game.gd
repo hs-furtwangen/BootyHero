@@ -25,7 +25,8 @@ var total_song_duration = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	##read_data("res://songs/space_dandy/")
+	#if(!song_data):
+		#read_data("res://songs/space_dandy/")
 	#read_zip_file("res://songs/farting_around.zip")
 	pass # Replace with function body.
 
@@ -106,40 +107,7 @@ func spawn_note(note: String, time: float):
 	var target_target_node = get_node("targets/target_" + note.substr(0, 1))
 	newNote.setup(start_target_node.position, target_target_node.position, time, currentTime, note)
 
-func _input(event):
-	var action = ""
-	if(event.is_action_pressed("LC")):
-		action = "lc"
-	if(event.is_action_pressed("LL")):
-		action = "ll"
-	if(event.is_action_pressed("LT")):
-		action = "lt"
-	if(event.is_action_pressed("LB")):
-		action = "lb"
-	if(event.is_action_pressed("RC")):
-		action = "rc"
-	if(event.is_action_pressed("RR")):
-		action = "rr"
-	if(event.is_action_pressed("RT")):
-		action = "rt"
-	if(event.is_action_pressed("RB")):
-		action = "rb"
-	if (!action): return
-	if (!action_last_use.has(action)):
-		action_last_use[action] = 0
-	if (action_last_use[action] > currentTime - hit_cooldown):
-		return
-	action_last_use[action] = currentTime
-	if(!active_elements.has(action)):
-		hit("miss", action)
-		return
-	while active_elements[action].size() > 0 && !is_instance_valid(active_elements[action][0]):
-		active_elements[action].pop_front()
-	if(active_elements[action].size() == 0):
-		hit("miss", action)
-		return
-	var accuracy = active_elements[action][0].hitMe()
-	hit(accuracy, action)
+	
 
 func hit(type: String, action: String):
 	match type:
@@ -177,19 +145,16 @@ func hit(type: String, action: String):
 	newPopup.position = get_node("targets/target_" + action.substr(0, 1)).position
 	newPopup.set_type(type)
 
-func is_action_active(action_to_check: String):
-	var time_to_check = currentTime - 0.1
-	for action in action_last_use:
-		if(action.begins_with(action_to_check) && action_last_use[action] > time_to_check):
-			return true
-	return false
 
-func what_is_currently_active():
-	var result = ""
-	if is_action_active("lr"):
-		result += "lr"
-	if is_action_active("l"):
-		result += "l"
-	if is_action_active("r"):
-		result += "r"
-	return result
+func _on_input_manager_input_received(action: String):
+	if(action == "l" || action == "lr" || action == "r"): return
+	if(!active_elements.has(action)):
+		hit("miss", action)
+		return
+	while active_elements[action].size() > 0 && !is_instance_valid(active_elements[action][0]):
+		active_elements[action].pop_front()
+	if(active_elements[action].size() == 0):
+		hit("miss", action)
+		return
+	var accuracy = active_elements[action][0].hitMe()
+	hit(accuracy, action)
