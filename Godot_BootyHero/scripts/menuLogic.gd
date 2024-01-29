@@ -104,7 +104,8 @@ func load_scene() -> void:
 				rootObject.add_child(gameScene)
 				gameScene.read_data("res://songs/farting_around/")
 				mainMenu.queue_free()
-
+		elif usb_nodes[usb_current_index].name == "quit":
+			get_tree().quit()
 
 
 func _on_inputmanager_input_received(type):
