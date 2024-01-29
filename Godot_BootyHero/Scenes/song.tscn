@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://fgi84l0rgg2h"]
+
+[ext_resource type="Texture2D" uid="uid://fgjx11xxceh0" path="res://ui_titel/Usb_import_start.png" id="1_eesuf"]
+[ext_resource type="Script" path="res://scripts/song.gd" id="2_d2lqr"]
+
+[node name="usb_stick" type="TextureRect"]
+custom_minimum_size = Vector2(100, 150)
+texture = ExtResource("1_eesuf")
+expand_mode = 1
+stretch_mode = 4
+script = ExtResource("2_d2lqr")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -59.0
+offset_top = -333.0
+offset_right = 141.0
+offset_bottom = -33.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]Space Dandy
+
+Difficulty:
+Easy
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2

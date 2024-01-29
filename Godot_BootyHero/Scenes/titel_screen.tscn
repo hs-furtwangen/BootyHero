@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://hk4drtq0mir0"]
+[gd_scene load_steps=12 format=3 uid="uid://hk4drtq0mir0"]
 
 [ext_resource type="Texture2D" uid="uid://b6fambk26vg2q" path="res://ui_titel/background_start.png" id="1_wphbe"]
 [ext_resource type="Texture2D" uid="uid://drg35ynt30o50" path="res://ui_titel/Curtains_start.png" id="2_kvjkk"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bj5j3e0sroi1j" path="res://ui_titel/Usb_normal_start.png" id="5_tajk5"]
 [ext_resource type="PackedScene" uid="uid://cjlqo8rnqxhcu" path="res://Scenes/game.tscn" id="7_aomje"]
 [ext_resource type="PackedScene" uid="uid://dsibx53l3n3nd" path="res://Scenes/credits_alex.tscn" id="7_m52tl"]
+[ext_resource type="Texture2D" uid="uid://co6t77c56o8oh" path="res://ui_titel/Usb_system_start.png" id="10_4cwo3"]
 [ext_resource type="Script" path="res://scripts/input_manager.gd" id="10_x3qlh"]
 
 [node name="Root" type="Control"]
@@ -110,6 +111,83 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 150
 
+[node name="quit" type="TextureRect" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+focus_neighbor_left = NodePath("../howTo")
+focus_previous = NodePath("../howTo")
+texture = ExtResource("10_4cwo3")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/quit"]
+visible = false
+layout_mode = 0
+offset_left = -59.0
+offset_top = -333.0
+offset_right = 141.0
+offset_bottom = -33.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]
+
+Quit
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 1
+
+[node name="howTo" type="TextureRect" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+texture = ExtResource("10_4cwo3")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/howTo"]
+visible = false
+layout_mode = 0
+offset_left = -59.0
+offset_top = -333.0
+offset_right = 141.0
+offset_bottom = -33.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]
+
+How To
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 1
+
+[node name="credits" type="TextureRect" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+texture = ExtResource("10_4cwo3")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/credits"]
+visible = false
+layout_mode = 0
+offset_left = -59.0
+offset_top = -333.0
+offset_right = 141.0
+offset_bottom = -33.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]
+
+Credits
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 1
+
 [node name="game_3" type="TextureRect" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
@@ -149,19 +227,18 @@ stretch_mode = 4
 visible = false
 layout_mode = 0
 offset_left = -59.0
-offset_top = -333.0
+offset_top = -378.0
 offset_right = 141.0
-offset_bottom = -33.0
+offset_bottom = 7.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "[center]
-Space 
+Space
 Dandy
 
 Difficulty:
-Easy
-"
+Easy"
 fit_content = true
 scroll_active = false
 autowrap_mode = 1
@@ -217,84 +294,6 @@ Around
 
 Difficulty:
 Hard
-"
-fit_content = true
-scroll_active = false
-autowrap_mode = 1
-
-[node name="credits" type="TextureRect" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 150)
-layout_mode = 2
-texture = ExtResource("5_tajk5")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/credits"]
-visible = false
-layout_mode = 0
-offset_left = -59.0
-offset_top = -333.0
-offset_right = 141.0
-offset_bottom = -33.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "[center]
-
-Credits
-"
-fit_content = true
-scroll_active = false
-autowrap_mode = 1
-
-[node name="howTo" type="TextureRect" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 150)
-layout_mode = 2
-texture = ExtResource("5_tajk5")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/howTo"]
-visible = false
-layout_mode = 0
-offset_left = -59.0
-offset_top = -333.0
-offset_right = 141.0
-offset_bottom = -33.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "[center]
-
-How To
-"
-fit_content = true
-scroll_active = false
-autowrap_mode = 1
-
-[node name="quit" type="TextureRect" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 150)
-layout_mode = 2
-focus_neighbor_left = NodePath("../howTo")
-focus_next = NodePath("../game_1")
-focus_previous = NodePath("../howTo")
-texture = ExtResource("5_tajk5")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/ScrollContainer/CenterContainer2/MarginContainer/HBoxContainer/quit"]
-visible = false
-layout_mode = 0
-offset_left = -59.0
-offset_top = -333.0
-offset_right = 141.0
-offset_bottom = -33.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "[center]
-
-Quit
 "
 fit_content = true
 scroll_active = false
