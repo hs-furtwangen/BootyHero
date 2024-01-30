@@ -1,12 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://bw73aehe6adg"]
+[gd_scene load_steps=13 format=3 uid="uid://bw73aehe6adg"]
 
-[ext_resource type="Script" path="res://scripts/BunnyManager.gd" id="1_mwuu6"]
+[ext_resource type="Script" path="res://scripts/BunnyManager.gd" id="1_6wust"]
 [ext_resource type="Texture2D" uid="uid://nh8fuxwbpsiw" path="res://Sprites/BunnyBody.PNG" id="2_ijtpo"]
 [ext_resource type="Texture2D" uid="uid://c0h8sslfwi784" path="res://Sprites/Paws Up/PawLeftUp.PNG" id="3_myfdw"]
 [ext_resource type="Texture2D" uid="uid://tj7rxwg582yc" path="res://Sprites/Paws Down/PawLeftDown.PNG" id="4_645uv"]
 [ext_resource type="Texture2D" uid="uid://ds7e7wvwhlmty" path="res://Sprites/Paws Up/PawRightUp.PNG" id="4_lgqg7"]
 [ext_resource type="Texture2D" uid="uid://catnchf02aw24" path="res://Sprites/Paws Down/PawRightDown.PNG" id="5_hwjq8"]
-[ext_resource type="PackedScene" uid="uid://beu0r8wimlkjb" path="res://Scenes/BootyGirl.tscn" id="7_nvek2"]
+[ext_resource type="PackedScene" uid="uid://dfoptl5epjn2q" path="res://Scenes/BootyGirl.tscn" id="7_o1vm1"]
 
 [sub_resource type="Animation" id="Animation_gkh1p"]
 resource_name = "PawDownBoth"
@@ -182,20 +182,6 @@ tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = PackedFloat32Array(0, 1, 0, 0.206006, 0, 0.5, 1, 0, 0.196, 0, 1, 1, 0, 0.206, 0)
-tracks/5/type = "position_3d"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../PawLeft/RigidBody3DLeft")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = PackedFloat32Array(0, 1, -6.64547, 0.600372, 5.77415, 0.5, 1, -6.645, -2.5, 5.774, 1, 1, -6.64547, 0.600372, 5.77415)
-tracks/6/type = "position_3d"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../PawRight/RigidBody3DRight")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = PackedFloat32Array(0, 1, 4.279, 0.6, 5.774, 0.5, 1, 4.279, -2.5, 5.774, 1, 1, 4.279, 0.6, 5.774)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_67aen"]
 _data = {
@@ -205,11 +191,8 @@ _data = {
 "PawIdle": SubResource("Animation_w8vcn")
 }
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_257pe"]
-radius = 1.73794
-
 [node name="BootyTest" type="Node3D"]
-script = ExtResource("1_mwuu6")
+script = ExtResource("1_6wust")
 
 [node name="BootyBunny" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0249851, 1.13993, -1.68537)
@@ -222,30 +205,16 @@ libraries = {
 autoplay = "PawIdle"
 
 [node name="Bunny Body" type="Sprite3D" parent="BootyBunny"]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0.205169, 0)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0.206006, 0)
 texture = ExtResource("2_ijtpo")
 
 [node name="PawLeft" type="Sprite3D" parent="BootyBunny"]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0.206, 0.25)
 texture = ExtResource("4_645uv")
 
-[node name="RigidBody3DLeft" type="RigidBody3D" parent="BootyBunny/PawLeft"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.64543, 0.342757, 5.77414)
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BootyBunny/PawLeft/RigidBody3DLeft"]
-shape = SubResource("SphereShape3D_257pe")
-
 [node name="PawRight" type="Sprite3D" parent="BootyBunny"]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -0.005, 0.2, 0.25)
 texture = ExtResource("5_hwjq8")
-
-[node name="RigidBody3DRight" type="RigidBody3D" parent="BootyBunny/PawRight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.279, 0.342416, 5.774)
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BootyBunny/PawRight/RigidBody3DRight"]
-shape = SubResource("SphereShape3D_257pe")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33671, -1.387)
@@ -255,21 +224,22 @@ near = 0.001
 far = 4018.35
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.642279, 0.766471, 0, -0.766471, -0.642279, 0, 3.15686, -1.05884)
+transform = Transform3D(1, 0, 0, 0, -0.642279, 0.766471, 0, -0.766471, -0.642279, 0, 3.15686, -0.671878)
 light_color = Color(1, 0.909804, 0.909804, 1)
+light_indirect_energy = 0.0
 shadow_bias = 0.0
 shadow_normal_bias = 0.788
 shadow_transmittance_bias = -9.647
 shadow_blur = 1.404
 directional_shadow_split_3 = 0.382
+directional_shadow_fade_start = 0.59
 directional_shadow_pancake_size = 29.3
 
 [node name="OmniLight3D" type="OmniLight3D" parent="DirectionalLight3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.951606, -1.54794)
-light_specular = 1.0
-omni_range = 18.1146
+light_energy = 1.97
+light_volumetric_fog_energy = 0.0
 
-[node name="BootyGirl" parent="." instance=ExtResource("7_nvek2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.63344)
+[node name="RootNode" parent="." instance=ExtResource("7_o1vm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014, 0, -1.637)
 
-[connection signal="clap" from="." to="BootyGirl" method="_on_booty_test_clap"]
+[connection signal="clap" from="." to="RootNode" method="_on_booty_test_clap"]
